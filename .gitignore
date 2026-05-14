@@ -12,7 +12,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
 # environment variables
 .env
 .env.production
@@ -22,3 +21,17 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# IDE settings
+.vscode/
+
+# Source assets (not needed in repo)
+/*.md
+/*.zip
+/both logos full.png
+/dark logo aim:sight.png
+/dark logo only inventus text.png
+/full logo with dark background.png
+/white aim:sight logo.png
+/white full logo.png
+/white only inventus text logo.png
