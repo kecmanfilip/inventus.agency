@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Newsletter from '../../components/Newsletter.astro';
 
 const title = 'Blog — Digitalna obaveštajna analiza i online bezbednost';
 const description = 'Stručni članci o digitalnoj obaveštajnoj analizi, zaštiti brenda, curenju podataka i online bezbednosti kompanija. Praktični saveti i uputstva.';
@@ -60,6 +61,10 @@ const posts = [
             </div>
           </article>
         ))}
+      </div>
+
+      <div class="mt-20">
+        <Newsletter />
       </div>
     </div>
   </div>

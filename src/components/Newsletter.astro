@@ -1,0 +1,43 @@
+---
+---
+
+<div class="rounded-2xl bg-bg-elevated accent-border p-8 md:p-12 reveal">
+  <div class="max-w-2xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/30 bg-accent/5 mb-6">
+      <span class="font-display text-xs tracking-wider text-accent uppercase">Bilten</span>
+    </div>
+    <h3 class="text-2xl md:text-3xl font-display mb-4">
+      Digitalna bezbednost, <span class="text-gradient">bez buzzword-a</span>
+    </h3>
+    <p class="text-text-secondary mb-8 leading-relaxed">
+      Jednom mesečno šaljemo konkretne savete o zaštiti kompanije na internetu. 
+      Bez prodajnog pritiska. Bez "revolucionarnih rešenja". Samo proverive informacije.
+    </p>
+    <form 
+      action="https://api.web3forms.com/submit" 
+      method="POST"
+      class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+    >
+      <input type="hidden" name="access_key" value="4e38a0fe-0016-42c9-a408-7d25d366f913">
+      <input type="hidden" name="subject" value="Nova pretplata na bilten — inventus.agency">
+      <input type="hidden" name="from_name" value="Inventus Bilten">
+      <input 
+        type="email" 
+        name="email"
+        required
+        placeholder="vas@kompanija.com"
+        class="flex-1 px-4 py-3 rounded-lg bg-bg-primary border border-border text-text-primary placeholder-text-muted focus:border-accent focus:outline-none transition-colors"
+      />
+      <button 
+        type="submit"
+        class="px-6 py-3 bg-accent text-bg-primary font-display font-medium text-sm tracking-wide rounded hover:bg-accent-glow transition-colors whitespace-nowrap"
+      >
+        Pretplatite se
+      </button>
+    </form>
+    <p class="text-text-muted text-xs mt-4">
+      Bez spama. Odjavite se bilo kad. Pogledajte 
+      <a href="/politika-privatnosti/" class="text-accent hover:underline">politiku privatnosti</a>.
+    </p>
+  </div>
+</div>
