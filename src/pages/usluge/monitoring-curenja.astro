@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Monitoring curenja podataka — Dark web i breach analiza';
+const description = 'Proverite da li su emailovi, lozinke ili poverljivi podaci vaše kompanije procureli na dark webu ili u javne baze curenja. Redovni monitoring i hitna obaveštenja.';
+
+const faqs = [
+  {
+    q: 'Kako funkcioniše monitoring curenja podataka?',
+    a: 'Koristimo specijalizovane tehničke alate i baze podataka kako bismo pretražili dark web, paste sajtove, javne baze curenja i druge izvore gde se mogu naći kompromitovani podaci. Pretražujemo po imenu kompanije, domenima, email adresama i drugim identifikatorima. Kada pronađemo curenje, analiziramo obim, vrstu podataka i potencijalni rizik, a zatim vas obaveštavamo sa detaljnim izveštajem i preporukama za postupanje.'
+  },
+  {
+    q: 'Da li moguće ukloniti curenje podataka sa interneta?',
+    a: 'Nažalost, jednom kada podaci procure na internet, gotovo je nemoguće potpuno ukloniti ih. Međutim, moguće je identifikovati izvor curenja, proceniti rizik i preduzeti mere da se spreči dalja eksploatacija. Takođe možemo da vam pomognemo u proceni da li su cureli podaci i dalje aktivno korišćeni i da li predstavljaju realnu pretnju.'
+  },
+  {
+    q: 'Koliko brzo dobijam obaveštenje o novom curenju?',
+    a: 'U zavisnosti od izabranog paketa, monitoring se vrši kontinuirano ili periodično. Za kontinuirani monitoring, obaveštavamo vas u roku od 24 sata od otkrivanja novog curenja. Za periodične provere, izveštaji se dostavljaju nedeljno ili mesečno, u zavisnosti od vaših potreba.'
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <article class="section-padding pt-24">
+    <div class="container-wide mx-auto">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-3 mb-6">
+          <a href="/usluge/" class="text-text-muted hover:text-accent transition-colors text-sm font-display">Usluge</a>
+          <span class="text-border">/</span>
+          <span class="text-accent text-sm font-display">Monitoring curenja</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl font-display mb-6">Monitoring curenja podataka</h1>
+        
+        <p class="text-xl text-text-secondary leading-relaxed mb-12">
+          Proverite da li su email nalozi, lozinke, interni dokumenti ili drugi poverljivi 
+          podaci vaše kompanije završili na dark webu ili u javno dostupnim bazama curenja.
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-8 mb-16">
+        <div class="lg:col-span-2 space-y-8">
+          <section>
+            <h2 class="text-2xl font-display mb-4">Zašto je monitoring curenja kritičan?</h2>
+            <p class="text-text-secondary leading-relaxed mb-4">
+              Podaci o kompanijama svakodnevno cure na internet — kroz hakovanje dobavljača, 
+              greške zaposlenih, nezaštićene baze podataka ili jednostavno zloupotrebu poverenih 
+              informacija. Mnoge kompanije su svesne da su bili hakovani tek kada im mi ili neko 
+              drugi ukaže na to.
+            </p>
+            <p class="text-text-secondary leading-relaxed">
+              Redovni monitoring vam omogućava da brzo reagujete — promenite kompromitovane lozinke, 
+              obavestite zaposlene i klijente, i preduzmete mere pre nego što curenje bude iskorišćeno 
+              za napad.
+            </p>
+          </section>
+          
+          <section>
+            <h2 class="text-2xl font-display mb-4">Šta pretražujemo?</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              {[
+                'Javne baze curenja podataka (Have I Been Pwned i druge)',
+                'Dark web marketplaces i forumi',
+                'Paste sajtove i anonimne platforme',
+                'Telegram kanale i Discord grupe',
+                'GitHub i javne repozitorijume',
+                'Javno dostupne S3 bucket-e i cloud storage',
+                'Kompanijske email adrese i kredencijale',
+                'Interne dokumente i prezentacije'
+              ].map(item => (
+                <div class="flex items-start gap-3 p-4 rounded-lg bg-bg-elevated accent-border">
+                  <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span class="text-text-secondary text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+        
+        <aside class="space-y-6">
+          <div class="p-6 rounded-xl bg-bg-elevated accent-border sticky top-24">
+            <h3 class="font-display text-lg mb-4">Brzi kontakt</h3>
+            <p class="text-text-secondary text-sm mb-6">
+              Zatražite besplatnu početnu konsultaciju i saznajte kako vam možemo pomoći.
+            </p>
+            <a href="/kontakt/" class="block w-full text-center px-6 py-3 bg-accent text-bg-primary font-display font-medium text-sm rounded hover:bg-accent-glow transition-colors mb-3">
+              Zatražite ponudu
+            </a>
+            <a href="mailto:hello@inventus.agency" class="block w-full text-center px-6 py-3 border border-border text-text-primary font-display text-sm rounded hover:border-accent/50 transition-colors">
+              hello@inventus.agency
+            </a>
+          </div>
+        </aside>
+      </div>
+      
+      <section class="max-w-3xl">
+        <h2 class="text-2xl font-display mb-8">Često postavljana pitanja</h2>
+        <div class="space-y-4">
+          {faqs.map(faq => (
+            <details class="group rounded-lg bg-bg-elevated accent-border p-6 cursor-pointer">
+              <summary class="font-display list-none flex justify-between items-center">
+                {faq.q}
+                <span class="ml-4 text-accent group-open:rotate-180 transition-transform">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-text-secondary leading-relaxed">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    </div>
+  </article>
+</Layout>

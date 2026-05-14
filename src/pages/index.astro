@@ -1,0 +1,502 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Inventus — Digitalna obaveštajna agencija';
+const description = 'Inventus je specijalizovana digitalna agencija za analizu javno dostupnih podataka, bezbednosnu procenu i zaštitu digitalnog identiteta kompanija na internetu.';
+
+const services = [
+  {
+    title: 'Digitalni otisak kompanije',
+    desc: 'Kompletan pregled svega što se o vašoj kompaniji može pronaći na internetu — od javnih registara do zaboravljenih poddomena i arhiviranih dokumenata.',
+    href: '/usluge/digitalni-otisak/',
+    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+  },
+  {
+    title: 'Monitoring curenja podataka',
+    desc: 'Provera da li su emailovi, lozinke, interni dokumenti ili poverljivi podaci vaše kompanije procureli na dark web ili u javno dostupne baze curenja.',
+    href: '/usluge/monitoring-curenja/',
+    icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
+  },
+  {
+    title: 'Zaštita brenda',
+    desc: 'Praćenje lažnih web sajtova, phishing stranica, typosquat domena i neovlašćenih društvenih mreža koje se predstavljaju kao vaša kompanija.',
+    href: '/usluge/zastita-brenda/',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
+  },
+  {
+    title: 'Obaveštajna analiza konkurencije',
+    desc: 'Dubinska analiza digitalnog prisustva konkurenata — tehnologije koje koriste, izvori saobraćaja, online strategije i slabosti u njihovom digitalnom okruženju.',
+    href: '/usluge/obavestajna-analiza/',
+    icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'
+  },
+  {
+    title: 'Email i domen sigurnost',
+    desc: 'Tehnička analiza SPF, DMARC i DKIM konfiguracije, provera subdomena, certificate transparency logova i potencijalnih ranjivosti u DNS infrastrukturi.',
+    href: '/usluge/email-domen-sigurnost/',
+    icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+  },
+  {
+    title: 'Website inteligencija',
+    desc: 'Analiza šta vaš javni veb sajt otkriva potencijalnim napadačima — tehnološki stek, struktura, metapodaci i informacije koje nehotice cure u javnost.',
+    href: '/usluge/website-inteligencija/',
+    icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9'
+  }
+];
+
+const faqs = [
+  {
+    q: 'Šta je digitalni otisak kompanije i zašto je važan?',
+    a: 'Digitalni otisak je sve što se o vašoj kompaniji može pronaći na internetu — od zvaničnih sajtova i društvenih mreža do zaboravljenih poddomena, arhiviranih dokumenata i javnih registara. Važan je jer napadači koriste ove informacije za planiranje ciljanih napada, socijalni inženjering i pronalaženje slabosti u vašoj digitalnoj infrastrukturi.'
+  },
+  {
+    q: 'Kako Inventus prikuplja podatke o kompanijama?',
+    a: 'Koristimo isključivo javno dostupne izvore i tehničke metode koje ne narušavaju privatnost niti zaobilaze bezbednosne mere. Naša analiza se zasniva na OSINT principima — prikupljanju informacija iz javnih baza podataka, registara, arhiva, DNS zapisa i drugih legitimnih izvora dostupnih svakome na internetu.'
+  },
+  {
+    q: 'Da li su vaše usluge legalne?',
+    a: 'Da. Sve usluge koje pružamo zasnivaju se na analizi javno dostupnih podataka i tehničkih informacija koje klijent legalno poseduje. Ne vršimo nadzor nad pojedincima, ne prikupljamo poverljive podatke neovlašćenim pristupom i ne nudimo usluge koje zahtevaju detektivsku licencu.'
+  },
+  {
+    q: 'Ko su tipični klijenti Inventus agencije?',
+    a: 'Naše usluge najčešće koriste vlasnici i direktori kompanija, CISO i IT bezbednosni timovi, timovi za korporativne akvizicije (M&A), pravna odeljenja, kao i marketing i PR timovi zaduženi za zaštitu reputacije brenda.'
+  },
+  {
+    q: 'Koliko traje izrada izveštaja?',
+    a: 'U zavisnosti od obima i složenosti, izrada izveštaja obično traje od 3 do 10 radnih dana. Hitni izveštaji sa osnovnim nalazima mogu biti dostavljeni u roku od 24–48 sati.'
+  }
+];
+
+const processSteps = [
+  {
+    step: '01',
+    title: 'Inicijalni razgovor',
+    desc: 'Bezplatna konsultacija u kojoj definišemo obim analize, ciljeve i očekivane ishode. Potpisujemo ugovor o poverljivosti (NDA) pre početka rada.',
+    time: '24 sata'
+  },
+  {
+    step: '02',
+    title: 'Prikupljanje podataka',
+    desc: 'Sistematska analiza javno dostupnih izvora — DNS zapisi, arhive, baze podataka, društvene mreže, dark web monitoring i tehnička ranjivost.',
+    time: '3-5 dana'
+  },
+  {
+    step: '03',
+    title: 'Analiza i izveštaj',
+    desc: 'Struktuirani izveštaj sa nalazima, rizicima rangiranim po ozbiljnosti i konkretnim preporukama za smanjenje digitalnog otiska i unapređenje bezbednosti.',
+    time: '3-10 dana'
+  }
+];
+
+const stats = [
+  { value: '6', label: 'Specijalizovanih usluga', suffix: '' },
+  { value: '100', label: 'Javno dostupni izvori', suffix: '%' },
+  { value: '24', label: 'Vreme odgovora', suffix: 'h' },
+  { value: '0', label: 'Rizik od nelegalnog rada', suffix: '%' }
+];
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center grid-pattern overflow-hidden aurora-bg">
+    <div class="absolute inset-0 bg-gradient-to-b from-bg-primary via-transparent to-bg-primary pointer-events-none"></div>
+    
+    <div class="container-wide mx-auto px-6 relative z-10">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/30 bg-accent/5 mb-8 fade-in">
+          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+          <span class="font-display text-xs tracking-wider text-accent uppercase">Digital Intelligence</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-medium leading-tight mb-6 fade-in" style="animation-delay: 0.1s">
+          Vidite svoju kompaniju <br/>
+          <span class="text-gradient glow-text">očima napadača.</span>
+        </h1>
+        
+        <p class="text-lg md:text-xl text-text-secondary max-w-2xl mb-10 leading-relaxed fade-in" style="animation-delay: 0.2s">
+          Inventus je specijalizovana agencija za digitalnu obaveštajnu analizu. 
+          Pružamo kompanijama uvid u njihov digitalni otisak, identifikujemo curenje 
+          podataka i štitimo brend od online pretnji — koristeći isključivo javno 
+          dostupne izvore i napredne tehničke metode.
+        </p>
+        
+        <div class="flex flex-wrap gap-4 fade-in" style="animation-delay: 0.3s">
+          <a href="/usluge/" class="inline-flex items-center px-6 py-3 bg-accent text-bg-primary font-display font-medium text-sm tracking-wide rounded hover:bg-accent-glow transition-colors">
+            Pogledajte usluge
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
+          <a href="/kontakt/" class="inline-flex items-center px-6 py-3 border border-border text-text-primary font-display font-medium text-sm tracking-wide rounded hover:border-accent/50 transition-colors">
+            Zatražite ponudu
+          </a>
+        </div>
+
+        <!-- Trust indicators -->
+        <div class="mt-16 flex flex-wrap gap-3 fade-in" style="animation-delay: 0.5s">
+          <span class="trust-badge">100% Legalni OSINT</span>
+          <span class="trust-badge">IT Bezbednosni Konsalting</span>
+          <span class="trust-badge">Enterprise-Grade</span>
+          <span class="trust-badge">Registrovano u Srbiji</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section-padding bg-bg-surface border-y border-border/30">
+    <div class="container-wide mx-auto">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        {stats.map((stat, i) => (
+          <div class="text-center reveal" class:list={[`reveal-delay-${i + 1}`]}>
+            <div class="stat-value" data-target={stat.value} data-suffix={stat.suffix}>
+              0{stat.suffix}
+            </div>
+            <p class="text-text-muted text-sm mt-2 font-display">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="section-padding">
+    <div class="container-wide mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 reveal">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-display mb-4">Naše usluge</h2>
+          <p class="text-text-secondary max-w-xl">
+            Sveobuhvatna digitalna obaveštajna rešenja dizajnirana da kompanijama 
+            pruže potpunu sliku o njihovom prisustvu na internetu i potencijalnim rizicima.
+          </p>
+        </div>
+        <a href="/usluge/" class="mt-6 md:mt-0 text-accent font-display text-sm tracking-wide hover:text-accent-glow transition-colors inline-flex items-center">
+          Sve usluge
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service, i) => (
+          <a href={service.href} class="group p-8 rounded-lg bg-bg-elevated accent-border card-hover reveal" class:list={[`reveal-delay-${(i % 3) + 1}`]} data-spotlight>
+            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={service.icon}></path>
+              </svg>
+            </div>
+            <h3 class="font-display text-lg mb-3 group-hover:text-accent transition-colors">{service.title}</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">{service.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section class="section-padding bg-bg-surface">
+    <div class="container-wide mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <h2 class="text-3xl md:text-4xl font-display mb-6">
+            Zašto kompanije <br/>biranju <span class="text-gradient">Inventus</span>?
+          </h2>
+          <p class="text-text-secondary mb-4 leading-relaxed">
+            U doba kada je svaka informacija o kompaniji dostupna na internetu, 
+            ključno je znati šta vaši konkurenti, klijenti i potencijalni napadači 
+            mogu da saznaju o vama. Mi ne nudimo obećanja — nudimo konkretne, 
+            proverive podatke prikupljene iz javnih izvora.
+          </p>
+          <p class="text-text-secondary mb-8 leading-relaxed border-l-2 border-accent/30 pl-4">
+            Naše analize ne sprovode automatizovani skeneri, već stručnjaci za 
+            ofanzivnu bezbednost i aplikativnu sigurnost, obučeni da prepoznaju 
+            rizike pre nego što postanu pretnje.
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="w-8 h-8 rounded bg-accent/10 flex items-center justify-center flex-shrink-0 mt-1">
+                <span class="font-display text-accent text-sm">01</span>
+              </div>
+              <div>
+                <h4 class="font-display mb-1">Isključivo javni izvori</h4>
+                <p class="text-text-secondary text-sm">Svi podaci se prikupljaju legalno, iz izvora dostupnih svakome. Ne koristimo hakovanje, socijalni inženjering niti ilegalne metode.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 rounded bg-accent/10 flex items-center justify-center flex-shrink-0 mt-1">
+                <span class="font-display text-accent text-sm">02</span>
+              </div>
+              <div>
+                <h4 class="font-display mb-1">Tehnička ekspertiza</h4>
+                <p class="text-text-secondary text-sm">Kombinujemo napredne OSINT tehnike, automatizovane alate i dubinsku analizu kako bismo pronašli ono što drugi previde.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 rounded bg-accent/10 flex items-center justify-center flex-shrink-0 mt-1">
+                <span class="font-display text-accent text-sm">03</span>
+              </div>
+              <div>
+                <h4 class="font-display mb-1">Diskrecija i anonimnost</h4>
+                <p class="text-text-secondary text-sm">Svi izveštaji se tretiraju kao poverljivi. Klijent odlučuje ko i kako će koristiti dobijene informacije.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative reveal reveal-delay-2">
+          <div class="absolute inset-0 bg-accent/5 rounded-2xl blur-3xl"></div>
+          <div class="relative p-8 rounded-2xl bg-bg-elevated accent-border scanlines">
+            <div class="font-display text-sm text-text-muted mb-6 tracking-wider uppercase">Primer nalaza</div>
+            <div class="space-y-4 font-display text-sm">
+              <div class="flex justify-between items-center py-2 border-b border-border/50">
+                <span class="text-text-secondary">Otkriveni poddomeni</span>
+                <span class="text-accent">47</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-border/50">
+                <span class="text-text-secondary">Cureli email nalozi</span>
+                <span class="text-red-400">12</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-border/50">
+                <span class="text-text-secondary">Lažni sajtovi</span>
+                <span class="text-amber-400">3</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-border/50">
+                <span class="text-text-secondary">Arhivirani dokumenti</span>
+                <span class="text-accent">156</span>
+              </div>
+              <div class="flex justify-between items-center py-2">
+                <span class="text-text-secondary">Ranjivosti DNS-a</span>
+                <span class="text-red-400">2</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-border/50">
+              <p class="text-text-muted text-xs leading-relaxed">
+                * Prikazani podaci su ilustrativni i zavise od konkretne kompanije 
+                i obima analize.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Usecase Section -->
+  <section class="section-padding">
+    <div class="container-wide mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <h2 class="text-3xl md:text-4xl font-display mb-4">Kome je ovo namenjeno</h2>
+        <p class="text-text-secondary">
+          Naše usluge su dizajnirane za organizacije koje shvataju da je 
+          digitalna bezbednost prevencija, a ne reakcija.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="p-8 rounded-xl bg-bg-elevated accent-border reveal reveal-delay-1">
+          <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="font-display text-lg mb-3">CISO / IT Timovi</h3>
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Otkrijte ranjivosti koje interni alati ne vide. Dobijte nezavisnu procenu 
+            napadačke površine vaše kompanije iz spoljašnje perspektive.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-xl bg-bg-elevated accent-border reveal reveal-delay-2">
+          <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+          <h3 class="font-display text-lg mb-3">M&A i Investitori</h3>
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Due diligence pre kupovine kompanije. Procenite digitalni rizik ciljane 
+            firme pre nego što potpišete ugovor — curenje podataka, reputacioni rizici, 
+            tehnički dug.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-xl bg-bg-elevated accent-border reveal reveal-delay-3">
+          <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="font-display text-lg mb-3">Vlasnici biznisa</h3>
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Zaštitite reputaciju brenda i predupredite socijalni inženjering. 
+            Saznajte šta konkurencija, klijenti i napadači mogu da pronađu o vama 
+            jednostavnim pretraživanjem.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section-padding">
+    <div class="container-wide mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <h2 class="text-3xl md:text-4xl font-display mb-4">Kako to funkcioniše</h2>
+        <p class="text-text-secondary">
+          Proces od prvog kontakta do konačnog izveštaja — transparentno, 
+          efikasno i u potpunosti poverljivo.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {processSteps.map((step, i) => (
+          <div class="relative reveal" class:list={[`reveal-delay-${i + 1}`]}>
+            <div class="p-8 rounded-xl bg-bg-elevated accent-border h-full">
+              <div class="flex items-center gap-4 mb-6">
+                <span class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center font-display text-accent text-lg">
+                  {step.step}
+                </span>
+                {i < processSteps.length - 1 && (
+                  <div class="hidden md:block flex-1 h-px bg-gradient-to-r from-accent/30 to-transparent"></div>
+                )}
+              </div>
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-display text-xl">{step.title}</h3>
+                <span class="px-2 py-0.5 rounded text-xs font-display bg-accent/10 text-accent">{step.time}</span>
+              </div>
+              <p class="text-text-secondary text-sm leading-relaxed">{step.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Magnet Section -->
+  <section class="section-padding bg-bg-surface">
+    <div class="container-wide mx-auto px-6">
+      <div class="relative rounded-2xl bg-bg-elevated accent-border p-12 md:p-16 overflow-hidden reveal">
+        <div class="absolute inset-0 bg-gradient-to-r from-accent/5 to-transparent pointer-events-none"></div>
+        
+        <div class="relative z-10 max-w-2xl mx-auto text-center">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/30 bg-accent/5 mb-6">
+            <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+            <span class="font-display text-xs tracking-wider text-accent uppercase">Besplatno</span>
+          </div>
+          
+          <h2 class="text-3xl md:text-4xl font-display mb-6">
+            Osnovni <span class="text-gradient">OSINT sken</span> vašeg domena
+          </h2>
+          <p class="text-text-secondary mb-8 leading-relaxed">
+            U roku od 24 sata šaljemo vam mini-izveštaj sa osnovnim nalazima: 
+            DMARC/DKIM/SPF konfiguracija, otkriveni poddomeni, cureli email nalozi 
+            i osnovna ranjivost — bez obaveze.
+          </p>
+          <a href="/kontakt/" class="inline-flex items-center px-8 py-4 bg-accent text-bg-primary font-display font-medium text-sm tracking-wide rounded hover:bg-accent-glow transition-colors">
+            Zatražite besplatni sken
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
+          <p class="text-text-muted text-xs mt-4">
+            Oduzima nam ~5 minuta. Vi vidite vrednost pre nego što potpišete bilo šta.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (AEO optimized) -->
+  <section class="section-padding bg-bg-surface">
+    <div class="container-narrow mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-display text-center mb-4 reveal">Često postavljana pitanja</h2>
+      <p class="text-text-secondary text-center mb-16 max-w-xl mx-auto reveal">
+        Odgovori na najčešća pitanja o našim uslugama, metodologiji i pravnoj osnovi za rad.
+      </p>
+      
+      <div class="space-y-6">
+        {faqs.map((faq, i) => (
+          <details class="group rounded-lg bg-bg-elevated accent-border p-6 cursor-pointer reveal" class:list={[`reveal-delay-${(i % 3) + 1}`]}>
+            <summary class="font-display text-lg list-none flex justify-between items-center">
+              {faq.q}
+              <span class="ml-4 text-accent group-open:rotate-180 transition-transform">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-text-secondary leading-relaxed">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding">
+    <div class="container-wide mx-auto px-6">
+      <div class="relative rounded-2xl bg-bg-elevated accent-border p-12 md:p-16 text-center overflow-hidden aurora-bg">
+        <div class="absolute inset-0 bg-gradient-to-r from-accent/5 to-transparent pointer-events-none"></div>
+        
+        <div class="relative z-10 max-w-2xl mx-auto reveal">
+          <h2 class="text-3xl md:text-4xl font-display mb-6">
+            Spremni da saznate <span class="text-gradient">istinu</span>?
+          </h2>
+          <p class="text-text-secondary mb-10 leading-relaxed">
+            Kontaktirajte nas za besplatnu početnu konsultaciju. Diskutovaćemo o 
+            vašim potrebama i predložiti najefikasniji pristup za vašu situaciju.
+          </p>
+          <a href="/kontakt/" class="inline-flex items-center px-8 py-4 bg-accent text-bg-primary font-display font-medium text-sm tracking-wide rounded hover:bg-accent-glow transition-colors">
+            Započnite analizu
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Spotlight effect on cards
+    document.querySelectorAll('[data-spotlight]').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Counter animation
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target || '0');
+          const suffix = el.dataset.suffix || '';
+          const duration = 1500;
+          const start = performance.now();
+          
+          function update(currentTime) {
+            const elapsed = currentTime - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(eased * target);
+            el.textContent = current + suffix;
+            
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            }
+          }
+          
+          requestAnimationFrame(update);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-value').forEach(el => counterObserver.observe(el));
+  </script>
+</Layout>

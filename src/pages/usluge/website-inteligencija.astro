@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Website inteligencija — Šta vaš sajt otkriva napadačima';
+const description = 'Analiza informacija koje vaš javni veb sajt nehotice otkriva — tehnološki stek, struktura, metapodaci i druge tehničke detalje koje napadači koriste.';
+
+const faqs = [
+  {
+    q: 'Šta je website inteligencija i čemu služi?',
+    a: 'Website inteligencija je analiza informacija koje vaš javni veb sajt otkriva o vašoj kompaniji, tehnologijama i infrastrukturi. Napadači rutinski prikupljaju ove informacije pre ciljanog napada kako bi identifikovali ranjivosti, planirali vektore napada i povećali šanse za uspeh. Razumevanjem šta vaš sajt otkriva, možete proaktivno smanjiti napadačku površinu.'
+  },
+  {
+    q: 'Da li je ovo isto što i penetration test?',
+    a: 'Ne. Website inteligencija je pasivna analiza — prikupljamo samo informacije koje su javno dostupne, bez ikakvog testiranja ranjivosti, pokušaja proboja ili aktivnog skeniranja. Ovo je korak pre penetracionog testa — razumevanje šta napadač zna pre nego što pokrene napad.'
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <article class="section-padding pt-24">
+    <div class="container-wide mx-auto">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-3 mb-6">
+          <a href="/usluge/" class="text-text-muted hover:text-accent transition-colors text-sm font-display">Usluge</a>
+          <span class="text-border">/</span>
+          <span class="text-accent text-sm font-display">Website inteligencija</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-display mb-6">Website inteligencija</h1>
+        <p class="text-xl text-text-secondary leading-relaxed mb-12">
+          Vaš javni sajt govori napadačima više nego što mislite. Analiziramo 
+          tehnološki stek, strukturu, metapodatke i druge tehničke detalje 
+          koje nehotice cure u javnost.
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-8 mb-16">
+        <div class="lg:col-span-2 space-y-8">
+          <section>
+            <h2 class="text-2xl font-display mb-4">Šta otkrivamo?</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              {[
+                'Tehnološki stek (CMS, framework, server)',
+                'Verzije softvera i potencijalne ranjivosti',
+                'Javno dostupni direktorijumi i fajlovi',
+                'Metapodaci u dokumentima i slikama',
+                'API endpointi i struktura aplikacije',
+                'Sigurnosna zaglavlja (security headers)',
+                'JavaScript analiza i otkriveni servisi',
+                'Informaciono curenje kroz sadržaj'
+              ].map(item => (
+                <div class="flex items-start gap-3 p-4 rounded-lg bg-bg-elevated accent-border">
+                  <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span class="text-text-secondary text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+        
+        <aside class="space-y-6">
+          <div class="p-6 rounded-xl bg-bg-elevated accent-border sticky top-24">
+            <h3 class="font-display text-lg mb-4">Brzi kontakt</h3>
+            <p class="text-text-secondary text-sm mb-6">Zatražite besplatnu početnu konsultaciju.</p>
+            <a href="/kontakt/" class="block w-full text-center px-6 py-3 bg-accent text-bg-primary font-display font-medium text-sm rounded hover:bg-accent-glow transition-colors mb-3">
+              Zatražite ponudu
+            </a>
+            <a href="mailto:hello@inventus.agency" class="block w-full text-center px-6 py-3 border border-border text-text-primary font-display text-sm rounded hover:border-accent/50 transition-colors">
+              hello@inventus.agency
+            </a>
+          </div>
+        </aside>
+      </div>
+      
+      <section class="max-w-3xl">
+        <h2 class="text-2xl font-display mb-8">Često postavljana pitanja</h2>
+        <div class="space-y-4">
+          {faqs.map(faq => (
+            <details class="group rounded-lg bg-bg-elevated accent-border p-6 cursor-pointer">
+              <summary class="font-display list-none flex justify-between items-center">{faq.q}
+                <span class="ml-4 text-accent group-open:rotate-180 transition-transform">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-text-secondary leading-relaxed">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    </div>
+  </article>
+</Layout>

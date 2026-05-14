@@ -1,0 +1,78 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border/50 bg-bg-surface">
+  <div class="container-wide mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-12 gap-12">
+      <div class="md:col-span-4">
+        <a href="/" class="flex items-center gap-3 group">
+          <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="group-hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.5)] transition-all duration-300">
+            <circle cx="50" cy="50" r="10" stroke="#06B6D4" stroke-width="5" fill="none"/>
+            <path d="M 50 22 A 28 28 0 0 1 78 50" stroke="#06B6D4" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <path d="M 78 50 A 28 28 0 0 1 50 78" stroke="#06B6D4" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <path d="M 50 78 A 28 28 0 0 1 22 50" stroke="#06B6D4" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <path d="M 22 50 A 28 28 0 0 1 50 22" stroke="#06B6D4" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <line x1="50" y1="12" x2="50" y2="88" stroke="#06B6D4" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="50" cy="6" r="4" fill="#06B6D4"/>
+            <circle cx="50" cy="94" r="4" fill="#06B6D4"/>
+            <rect x="4" y="46" width="8" height="8" rx="1" fill="#06B6D4"/>
+            <rect x="16" y="46" width="8" height="8" rx="1" fill="#06B6D4"/>
+            <rect x="76" y="46" width="8" height="8" rx="1" fill="#06B6D4"/>
+            <rect x="88" y="46" width="8" height="8" rx="1" fill="#06B6D4"/>
+          </svg>
+          <span class="font-display text-2xl tracking-tight text-text-primary group-hover:text-white transition-colors">
+            INVENTUS<span class="text-accent">.</span>
+          </span>
+        </a>
+        <p class="mt-4 text-text-secondary leading-relaxed text-sm">
+          Digitalna obaveštajna agencija specijalizovana za analizu javno dostupnih podataka, 
+          bezbednosnu procenu i zaštitu digitalnog identiteta kompanija.
+        </p>
+        <div class="mt-6 flex items-center gap-2 text-xs text-text-muted">
+          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+          <span>Status: Aktivan</span>
+        </div>
+      </div>
+      
+      <div class="md:col-span-2 md:col-start-6">
+        <h4 class="font-display text-sm tracking-wide text-text-muted mb-4">Usluge</h4>
+        <ul class="space-y-2">
+          <li><a href="/usluge/digitalni-otisak/" class="text-text-secondary hover:text-accent transition-colors text-sm">Digitalni otisak</a></li>
+          <li><a href="/usluge/monitoring-curenja/" class="text-text-secondary hover:text-accent transition-colors text-sm">Monitoring curenja</a></li>
+          <li><a href="/usluge/zastita-brenda/" class="text-text-secondary hover:text-accent transition-colors text-sm">Zaštita brenda</a></li>
+          <li><a href="/usluge/obavestajna-analiza/" class="text-text-secondary hover:text-accent transition-colors text-sm">Obaveštajna analiza</a></li>
+          <li><a href="/usluge/email-domen-sigurnost/" class="text-text-secondary hover:text-accent transition-colors text-sm">Email sigurnost</a></li>
+          <li><a href="/usluge/website-inteligencija/" class="text-text-secondary hover:text-accent transition-colors text-sm">Website inteligencija</a></li>
+        </ul>
+      </div>
+      
+      <div class="md:col-span-2">
+        <h4 class="font-display text-sm tracking-wide text-text-muted mb-4">Kompanija</h4>
+        <ul class="space-y-2">
+          <li><a href="/blog/" class="text-text-secondary hover:text-accent transition-colors text-sm">Blog</a></li>
+          <li><a href="/kontakt/" class="text-text-secondary hover:text-accent transition-colors text-sm">Kontakt</a></li>
+        </ul>
+      </div>
+      
+      <div class="md:col-span-2">
+        <h4 class="font-display text-sm tracking-wide text-text-muted mb-4">Pravno</h4>
+        <ul class="space-y-2">
+          <li><a href="/politika-privatnosti/" class="text-text-secondary hover:text-accent transition-colors text-sm">Politika privatnosti</a></li>
+          <li><a href="/uslovi-koriscenja/" class="text-text-secondary hover:text-accent transition-colors text-sm">Uslovi korišćenja</a></li>
+          <li><a href="/politika-kolacica/" class="text-text-secondary hover:text-accent transition-colors text-sm">Politika kolačića</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="mt-16 pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-text-muted text-xs">© {year} Inventus. Sva prava zadržana.</p>
+      <div class="flex flex-wrap gap-6 items-center justify-center">
+        <a href="/politika-privatnosti/" class="text-text-muted hover:text-accent transition-colors text-xs">Privatnost</a>
+        <a href="/uslovi-koriscenja/" class="text-text-muted hover:text-accent transition-colors text-xs">Uslovi</a>
+        <a href="/politika-kolacica/" class="text-text-muted hover:text-accent transition-colors text-xs">Kolačići</a>
+        <a href="https://quantex.rs" target="_blank" rel="noopener" class="text-text-muted hover:text-accent transition-colors text-xs">Dizajn, razvoj i SEO: Quantex.rs</a>
+      </div>
+    </div>
+  </div>
+</footer>

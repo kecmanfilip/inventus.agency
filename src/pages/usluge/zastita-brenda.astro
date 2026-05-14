@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Zaštita brenda — Otkrivanje zloupotrebe online';
+const description = 'Aktivno praćenje i identifikacija zloupotrebe imena, logoa i identiteta vaše kompanije na internetu. Typosquat domeni, phishing, lažni profili.';
+
+const faqs = [
+  {
+    q: 'Koje vrste zloupotrebe brenda pratite?',
+    a: 'Praćimo nekoliko kategorija zloupotrebe: typosquat domena (sajtovi sa sličnim imenom kao vaš), lookalike domena, phishing stranice koje imitiraju vaš sajt, lažne profile na društvenim mrežama (LinkedIn, Facebook, Instagram, Twitter/X), neovlašćenu upotrebu logoa i vizuelnog identiteta, kao i negativni sadržaj i lažne vesti povezane sa vašim brendom.'
+  },
+  {
+    q: 'Kako mogu da zaštitim svoj brend online?',
+    a: 'Prvi korak je svest — morate znati da zloupotreba postoji. Drugi korak je registracija varijanti vašeg domena, posebno popularnih typosquatova. Treći je aktivno prijavljivanje zloupotrebe platformama (registrarima, društvenim mrežama, hosting provajderima). Mi vam pomažemo u svim fazama: otkrivanju, dokumentovanju i prijavljivanju zloupotrebe.'
+  },
+  {
+    q: 'Ko je najčešće meta ovakvih napada?',
+    a: 'Najčešće mete su finansijske institucije, e-commerce kompanije, tehnološke firme i brendovi sa jakom online prisutnošću. Međutim, svaka kompanija koja ima klijente, prihod ili reputaciju može biti meta — bilo da napadači žele da ukradu podatke klijenata, preusmere plaćanja ili jednostavno oštete reputaciju.'
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <article class="section-padding pt-24">
+    <div class="container-wide mx-auto">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-3 mb-6">
+          <a href="/usluge/" class="text-text-muted hover:text-accent transition-colors text-sm font-display">Usluge</a>
+          <span class="text-border">/</span>
+          <span class="text-accent text-sm font-display">Zaštita brenda</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-display mb-6">Zaštita brenda</h1>
+        <p class="text-xl text-text-secondary leading-relaxed mb-12">
+          Otkrivanje i dokumentovanje zloupotrebe imena, logoa i digitalnog identiteta 
+          vaše kompanije na internetu — od lažnih sajtova do neovlašćenih društvenih mreža.
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-8 mb-16">
+        <div class="lg:col-span-2 space-y-8">
+          <section>
+            <h2 class="text-2xl font-display mb-4">Šta vas ugrožava?</h2>
+            <p class="text-text-secondary leading-relaxed mb-4">
+              Napadači i prevaranti rutinski kreiraju lažne sajtove, društvene mreže i email adrese 
+              koje izgledaju kao vaše. Cilj im je da prevaru vaše klijente, ukradu njihove podatke 
+              ili preusmere plaćanja. Ovo ne šteti samo klijentima — šteti i vašoj reputaciji i 
+              može dovesti do pravnih problema.
+            </p>
+          </section>
+          
+          <section>
+            <h2 class="text-2xl font-display mb-4">Obim monitoringa</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              {[
+                'Typosquat i lookalike domeni',
+                'Phishing stranice i email kampanje',
+                'Lažni profili na LinkedIn-u',
+                'Neovlašćeni Facebook i Instagram nalozi',
+                'Lažni Twitter/X nalozi',
+                'Neovlašćena upotreba logoa',
+                'Negativni sadržaj i lažne vesti',
+                'Upozorenja u realnom vremenu'
+              ].map(item => (
+                <div class="flex items-start gap-3 p-4 rounded-lg bg-bg-elevated accent-border">
+                  <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span class="text-text-secondary text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+        
+        <aside class="space-y-6">
+          <div class="p-6 rounded-xl bg-bg-elevated accent-border sticky top-24">
+            <h3 class="font-display text-lg mb-4">Brzi kontakt</h3>
+            <p class="text-text-secondary text-sm mb-6">Zatražite besplatnu početnu konsultaciju.</p>
+            <a href="/kontakt/" class="block w-full text-center px-6 py-3 bg-accent text-bg-primary font-display font-medium text-sm rounded hover:bg-accent-glow transition-colors mb-3">
+              Zatražite ponudu
+            </a>
+            <a href="mailto:hello@inventus.agency" class="block w-full text-center px-6 py-3 border border-border text-text-primary font-display text-sm rounded hover:border-accent/50 transition-colors">
+              hello@inventus.agency
+            </a>
+          </div>
+        </aside>
+      </div>
+      
+      <section class="max-w-3xl">
+        <h2 class="text-2xl font-display mb-8">Često postavljana pitanja</h2>
+        <div class="space-y-4">
+          {faqs.map(faq => (
+            <details class="group rounded-lg bg-bg-elevated accent-border p-6 cursor-pointer">
+              <summary class="font-display list-none flex justify-between items-center">{faq.q}
+                <span class="ml-4 text-accent group-open:rotate-180 transition-transform">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-text-secondary leading-relaxed">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    </div>
+  </article>
+</Layout>

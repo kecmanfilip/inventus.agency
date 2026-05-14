@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Politika kolačića';
+const description = 'Informacije o kolačićima koje koristi inventus.agency veb sajt. Upravljanje saglasnošću i detaljan opis svih kolačića.';
+---
+
+<Layout title={title} description={description} noindex={true}>
+  <div class="section-padding pt-28">
+    <div class="container-narrow mx-auto">
+      <h1 class="text-3xl md:text-4xl font-display mb-8">Politika kolačića</h1>
+      <p class="text-text-secondary text-sm mb-12">Poslednja izmena: 13. maj 2026.</p>
+
+      <div class="prose prose-invert max-w-none">
+        <section class="mb-10">
+          <h2 class="text-xl font-display mb-4 text-accent">1. Šta su kolačići?</h2>
+          <p class="text-text-secondary leading-relaxed">
+            Kolačići (cookies) su male tekstualne datoteke koje veb sajt čuva na vašem uređaju 
+            prilikom posete. One omogućavaju sajtu da zapamti vaše akcije i preference (kao što su 
+            jezik, veličina fonta i druge postavke prikaza) tokom određenog vremenskog perioda, 
+            tako da ih ne morate ponovo unositi prilikom svake posete ili prelaska sa jedne stranice 
+            na drugu.
+          </p>
+        </section>
+
+        <section class="mb-10">
+          <h2 class="text-xl font-display mb-4 text-accent">2. Koje kolačiće koristimo?</h2>
+          <p class="text-text-secondary leading-relaxed mb-4">
+            Naš sajt koristi isključivo <strong>neophodne (essential) kolačiće</strong>. 
+            Ovi kolačići su neophodni za tehnički ispravan rad sajta i ne mogu se isključiti.
+          </p>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left text-text-secondary border border-border/50 rounded-lg">
+              <thead class="bg-bg-elevated text-text-primary">
+                <tr>
+                  <th class="px-4 py-3">Naziv kolačića</th>
+                  <th class="px-4 py-3">Davalac</th>
+                  <th class="px-4 py-3">Svrha</th>
+                  <th class="px-4 py-3">Trajanje</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/50">
+                <tr>
+                  <td class="px-4 py-3">__cf_bm</td>
+                  <td class="px-4 py-3">Cloudflare</td>
+                  <td class="px-4 py-3">Zaštita sajta od botova i DDoS napada</td>
+                  <td class="px-4 py-3">30 minuta</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3">cf_clearance</td>
+                  <td class="px-4 py-3">Cloudflare</td>
+                  <td class="px-4 py-3">Verifikacija legitmih posetilaca nakon security check-a</td>
+                  <td class="px-4 py-3">1 godina</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3">cookie_consent</td>
+                  <td class="px-4 py-3">Inventus</td>
+                  <td class="px-4 py-3">Pamti vaš izbor o kolačićima</td>
+                  <td class="px-4 py-3">1 godina</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="mb-10">
+          <h2 class="text-xl font-display mb-4 text-accent">3. Koje kolačiće NE koristimo?</h2>
+          <p class="text-text-secondary leading-relaxed mb-4">
+            Svesno ne koristimo sledeće kategorije kolačića:
+          </p>
+          <ul class="list-disc list-inside text-text-secondary leading-relaxed space-y-2">
+            <li><strong>Analitički kolačići</strong> (Google Analytics, Matomo) — ne pratimo ponašanje posetilaca</li>
+            <li><strong>Marketing kolačići</strong> (Facebook Pixel, Google Ads) — ne prikupljamo podatke za reklame</li>
+            <li><strong>Funkcionalni kolačići</strong> — ne pamtimo preference osim saglasnosti za kolačiće</li>
+            <li><strong>Kolačići trećih strana za praćenje</strong> — ne delimo podatke sa oglašivačkim mrežama</li>
+          </ul>
+        </section>
+
+        <section class="mb-10">
+          <h2 class="text-xl font-display mb-4 text-accent">4. Kako upravljati kolačićima?</h2>
+          <p class="text-text-secondary leading-relaxed mb-4">
+            Možete kontrolisati i/ili brisati kolačiće po želji. Većina pretraživača automatski 
+            prihvata kolačiće, ali obično možete promeniti postavke pretraživača da odbijete kolačiće 
+            ili da vas obavesti kada se kolačić šalje na vaš uređaj.
+          </p>
+          <p class="text-text-secondary leading-relaxed mb-4">
+            Uputstva za najčešće pretraživače:
+          </p>
+          <ul class="list-disc list-inside text-text-secondary leading-relaxed space-y-2 mb-4">
+            <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener" class="text-accent hover:underline">Google Chrome</a></li>
+            <li><a href="https://support.mozilla.org/sr/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener" class="text-accent hover:underline">Mozilla Firefox</a></li>
+            <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener" class="text-accent hover:underline">Safari</a></li>
+            <li><a href="https://support.microsoft.com/help/4027947/microsoft-edge-delete-cookies" target="_blank" rel="noopener" class="text-accent hover:underline">Microsoft Edge</a></li>
+          </ul>
+          <p class="text-text-secondary leading-relaxed">
+            <strong>Napomena:</strong> Isključivanje neophodnih kolačića može uticati na funkcionalnost sajta.
+          </p>
+        </section>
+
+        <section class="mb-10">
+          <h2 class="text-xl font-display mb-4 text-accent">5. Kontakt</h2>
+          <p class="text-text-secondary leading-relaxed">
+            Za sva pitanja u vezi sa kolačićima, kontaktirajte nas na 
+            <a href="mailto:hello@inventus.agency" class="text-accent hover:underline">hello@inventus.agency</a>.
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+</Layout>

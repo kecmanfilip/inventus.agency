@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Blog — Digitalna obaveštajna analiza i online bezbednost';
+const description = 'Stručni članci o digitalnoj obaveštajnoj analizi, zaštiti brenda, curenju podataka i online bezbednosti kompanija. Praktični saveti i uputstva.';
+
+const posts = [
+  {
+    title: 'Šta je digitalni otisak kompanije i zašto je važan u 2025?',
+    excerpt: 'Digitalni otisak je sve što se o vašoj kompaniji može pronaći na internetu. U ovom članku objašnjavamo šta obuhvata, kako napadači koriste ove informacije i kako da zaštitite svoju kompaniju.',
+    slug: 'digitalni-otisak-znacaj',
+    date: '2025-04-15',
+    readTime: '6 min'
+  },
+  {
+    title: 'Dark web monitoring za firme — šta treba da znate',
+    excerpt: 'Dark web nije samo mesto ilegalnih aktivnosti — to je i tržište ukradenih podataka. Saznajte kako funkcioniše monitoring, šta možete da otkrijete i kako da reagujete ako vaši podaci procure.',
+    slug: 'dark-web-monitoring',
+    date: '2025-03-28',
+    readTime: '8 min'
+  },
+  {
+    title: 'Kako istražiti kompaniju online — vodič za M&A timove',
+    excerpt: 'Pre akvizicije ili ulaganja, ključno je znati šta se o ciljnoj kompaniji može pronaći online. Ovaj vodič pokazuje kako legalno i etično prikupiti javno dostupne informacije o poslovnom partneru.',
+    slug: 'istraziti-kompaniju-online',
+    date: '2025-03-10',
+    readTime: '10 min'
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <div class="section-padding pt-24">
+    <div class="container-wide mx-auto">
+      <div class="max-w-3xl mb-16">
+        <h1 class="text-4xl md:text-5xl font-display mb-6">Blog</h1>
+        <p class="text-text-secondary text-lg leading-relaxed">
+          Stručni članci, uputstva i analize iz oblasti digitalne obaveštajne analize, 
+          online bezbednosti i zaštite kompanija na internetu.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map(post => (
+          <article class="group flex flex-col rounded-xl bg-bg-elevated accent-border overflow-hidden card-hover">
+            <div class="p-8 flex-1 flex flex-col">
+              <div class="flex items-center gap-3 text-xs text-text-muted font-display mb-4">
+                <span>{post.date}</span>
+                <span>·</span>
+                <span>{post.readTime} čitanja</span>
+              </div>
+              <h2 class="text-xl font-display mb-3 group-hover:text-accent transition-colors">
+                <a href={`/blog/${post.slug}/`}>{post.title}</a>
+              </h2>
+              <p class="text-text-secondary text-sm leading-relaxed flex-1">{post.excerpt}</p>
+              <a href={`/blog/${post.slug}/`} class="mt-6 inline-flex items-center text-accent font-display text-sm tracking-wide hover:text-accent-glow transition-colors">
+                Pročitajte više
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>

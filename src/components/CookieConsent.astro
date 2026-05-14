@@ -1,0 +1,47 @@
+---
+---
+
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 border-t border-border/50 bg-bg-primary/95 backdrop-blur-xl hidden">
+  <div class="container-wide mx-auto px-6 py-5">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div class="flex-1">
+        <p class="text-text-secondary text-sm leading-relaxed">
+          Koristimo isključivo neophodne kolačiće za tehnički ispravan rad sajta i zaštitu od botova. 
+          Ne koristimo kolačiće za praćenje, analitiku niti marketing. 
+          <a href="/politika-kolacica/" class="text-accent hover:underline ml-1">Saznajte više</a>
+        </p>
+      </div>
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <button id="cookie-reject" class="px-4 py-2 text-sm font-display text-text-muted hover:text-text-primary transition-colors">
+          Odbijam
+        </button>
+        <button id="cookie-accept" class="px-5 py-2 bg-accent text-bg-primary font-display text-sm rounded hover:bg-accent-glow transition-colors">
+          Prihvatam
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+    const rejectBtn = document.getElementById('cookie-reject');
+    
+    const consent = localStorage.getItem('cookie_consent');
+    
+    if (!consent) {
+      banner?.classList.remove('hidden');
+    }
+    
+    function setConsent(value) {
+      localStorage.setItem('cookie_consent', value);
+      localStorage.setItem('cookie_consent_date', new Date().toISOString());
+      banner?.classList.add('hidden');
+    }
+    
+    acceptBtn?.addEventListener('click', () => setConsent('accepted'));
+    rejectBtn?.addEventListener('click', () => setConsent('rejected'));
+  })();
+</script>

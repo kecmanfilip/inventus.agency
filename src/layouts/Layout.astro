@@ -1,0 +1,128 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  article?: boolean;
+  publishedDate?: string;
+  modifiedDate?: string;
+  noindex?: boolean;
+}
+
+const { 
+  title, 
+  description, 
+  canonical = Astro.url.pathname,
+  ogImage = '/og-default.jpg',
+  article = false,
+  publishedDate,
+  modifiedDate,
+  noindex = false
+} = Astro.props;
+
+const siteUrl = 'https://inventus.agency';
+const fullCanonical = canonical.startsWith('http') ? canonical : `${siteUrl}${canonical}`;
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+const pageTitle = title.includes('Inventus') ? title : `${title} | Inventus`;
+---
+
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={fullCanonical} />
+  
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Inventus" />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={fullCanonical} />
+  <meta property="og:image" content={fullOgImage} />
+  <meta property="og:locale" content="sr_RS" />
+  {article && <meta property="og:type" content="article" />}
+  {!article && <meta property="og:type" content="website" />}
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={fullOgImage} />
+  
+  <!-- Schema.org Organization -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Inventus",
+    "url": siteUrl,
+    "logo": `${siteUrl}/images/logo/icon.svg`,
+    "description": "Digitalna obaveštajna agencija specijalizovana za analizu javno dostupnih podataka i bezbednosnu procenu kompanija.",
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Korisnička podrška",
+      "availableLanguage": ["Serbian", "English"]
+    }
+  })} />
+  
+  {article && publishedDate && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": title,
+      "description": description,
+      "url": fullCanonical,
+      "datePublished": publishedDate,
+      "dateModified": modifiedDate || publishedDate,
+      "author": {
+        "@type": "Organization",
+        "name": "Inventus"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Inventus",
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${siteUrl}/images/logo/icon.svg`
+        }
+      }
+    })} />
+  )}
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  <style is:global>
+    @import "../styles/global.css";
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <slot name="nav">
+    <Navigation />
+  </slot>
+  
+  <main class="flex-1 pt-16">
+    <slot />
+  </main>
+  
+  <Footer />
+  <CookieConsent />
+</body>
+</html>

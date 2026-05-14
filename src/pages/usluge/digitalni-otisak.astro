@@ -1,0 +1,148 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Digitalni otisak kompanije — Kompletna analiza online prisustva';
+const description = 'Saznajte šta se sve o vašoj kompaniji može pronaći na internetu. Analiziramo domene, registre, arhive, društvene mreže i javne baze kako bismo mapirali vaš kompletan digitalni otisak.';
+
+const faqs = [
+  {
+    q: 'Šta tačno obuhvata analiza digitalnog otiska kompanije?',
+    a: 'Analiza obuhvata mapiranje svih domena i poddomena povezanih sa vašom kompanijom, pregled javnih registara i poslovnih baza, analizu arhiviranih verzija sajtova (Wayback Machine), identifikaciju javnih dokumenata i prezentacija, pregled profila na društvenim mrežama, kao i tehničke informacije koje vaša infrastruktura otkriva javnosti. Cilj je da dobijete kompletnu sliku o tome šta potencijalni napadači, konkurenti ili zainteresovane strane mogu da saznaju o vama bez ikakvog hakovanja.'
+  },
+  {
+    q: 'Koliko često bi trebalo vršiti analizu digitalnog otiska?',
+    a: 'Preporučujemo kompletnu analizu najmanje jednom godišnje, uz periodičan monitoring ključnih parametara svakog kvartala. Digitalni otisak se menja konstantno — kompanije otvaraju nove servise, zaposleni kreiraju profile, poddomeni ističu, a dokumenti se objavljuju i zaboravljaju. Redovna analiza osigurava da ste uvek svesni šta se o vama može pronaći.'
+  },
+  {
+    q: 'Da li je ova usluga legalna?',
+    a: 'Potpuno. Sve informacije koje prikupljamo su javno dostupne svakome na internetu. Ne pristupamo zaštićenim sistemima, ne hakujemo niti koristimo bilo kakve ilegalne metode. Naša analiza se zasniva na OSINT principima — prikupljanju podataka iz izvora koje je vlasnik namerno ili slučajno učinio javnim.'
+  },
+  {
+    q: 'Ko treba da koristi ovu uslugu?',
+    a: 'Ova usluga je posebno korisna za CISO i bezbednosne timove koji žele da razumeju napadačku perspektivu, M&A timove koji procenjuju ciljne kompanije, PR i komunikacione timove zadužene za reputaciju brenda, kao i vlasnike kompanija koji žele da budu svesni šta se o njihovom poslovanju može pronaći online.'
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Digitalni otisak kompanije",
+    "provider": {
+      "@type": "Organization",
+      "name": "Inventus"
+    },
+    "description": description,
+    "areaServed": "RS",
+    "serviceType": "Digital Intelligence"
+  })} />
+
+  <article class="section-padding pt-24">
+    <div class="container-wide mx-auto">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-3 mb-6">
+          <a href="/usluge/" class="text-text-muted hover:text-accent transition-colors text-sm font-display">Usluge</a>
+          <span class="text-border">/</span>
+          <span class="text-accent text-sm font-display">Digitalni otisak</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl font-display mb-6">Digitalni otisak kompanije</h1>
+        
+        <p class="text-xl text-text-secondary leading-relaxed mb-12">
+          Kompletan pregled svega što se o vašoj kompaniji može pronaći na internetu. 
+          Mapiramo vaše domene, registre, arhive, društvene mreže i javne baze podataka 
+          kako biste znali šta potencijalni napadači već znaju o vama.
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-8 mb-16">
+        <div class="lg:col-span-2 space-y-8">
+          <section>
+            <h2 class="text-2xl font-display mb-4">Zašto je digitalni otisak važan?</h2>
+            <p class="text-text-secondary leading-relaxed mb-4">
+              Svaka kompanija na internetu ostavlja tragove — neke namerne, neke slučajne. 
+              Zaboravljeni poddomeni sa testnim verzijama sajtova, javno dostupni interni dokumenti, 
+              profili bivših zaposlenih koji još uvek navode poverljive informacije, arhivirane 
+              verzije sajtova sa zastarelim podacima — sve ovo čini vaš digitalni otisak.
+            </p>
+            <p class="text-text-secondary leading-relaxed">
+              Napadači rutinski prikupljaju ove informacije pre nego što pokrenu ciljani napad. 
+              Razumevanje sopstvenog digitalnog otiska je prvi korak ka smanjenju napadačke površine.
+            </p>
+          </section>
+          
+          <section>
+            <h2 class="text-2xl font-display mb-4">Šta dobijate u izveštaju?</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              {[
+                'Kompletna mapa domena i poddomena',
+                'Pregled javnih registara i poslovnih baza',
+                'Analiza arhiviranih sadržaja',
+                'Identifikacija javno dostupnih dokumenata',
+                'Pregled društvenih mreža i profila',
+                'Tehnička analiza otkrivenih servisa',
+                'Procena rizika po kategorijama',
+                'Konkretne preporuke za uklanjanje'
+              ].map(item => (
+                <div class="flex items-start gap-3 p-4 rounded-lg bg-bg-elevated accent-border">
+                  <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span class="text-text-secondary text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+          
+          <section>
+            <h2 class="text-2xl font-display mb-4">Metodologija</h2>
+            <p class="text-text-secondary leading-relaxed mb-4">
+              Naša analiza se sprovodi u nekoliko faza. Prvo identifikujemo sve domene i poddomene 
+              povezane sa kompanijom. Zatim pretražujemo javne registre, poslovne baze i arhive. 
+              U trećoj fazi analiziramo društvene mreže i javne profile. Na kraju sve informacije 
+              kategorizujemo po nivou rizika i dajemo konkretne preporuke za uklanjanje ili ublažavanje.
+            </p>
+            <p class="text-text-secondary leading-relaxed">
+              Sve informacije se prikupljaju isključivo iz javnih izvora, bez ikakvog pristupa 
+              zaštićenim sistemima ili korišćenja ilegalnih metoda.
+            </p>
+          </section>
+        </div>
+        
+        <aside class="space-y-6">
+          <div class="p-6 rounded-xl bg-bg-elevated accent-border sticky top-24">
+            <h3 class="font-display text-lg mb-4">Brzi kontakt</h3>
+            <p class="text-text-secondary text-sm mb-6">
+              Zatražite besplatnu početnu konsultaciju i saznajte kako vam možemo pomoći.
+            </p>
+            <a href="/kontakt/" class="block w-full text-center px-6 py-3 bg-accent text-bg-primary font-display font-medium text-sm rounded hover:bg-accent-glow transition-colors mb-3">
+              Zatražite ponudu
+            </a>
+            <a href="mailto:hello@inventus.agency" class="block w-full text-center px-6 py-3 border border-border text-text-primary font-display text-sm rounded hover:border-accent/50 transition-colors">
+              hello@inventus.agency
+            </a>
+          </div>
+        </aside>
+      </div>
+      
+      <!-- FAQ -->
+      <section class="max-w-3xl">
+        <h2 class="text-2xl font-display mb-8">Često postavljana pitanja</h2>
+        <div class="space-y-4">
+          {faqs.map(faq => (
+            <details class="group rounded-lg bg-bg-elevated accent-border p-6 cursor-pointer">
+              <summary class="font-display list-none flex justify-between items-center">
+                {faq.q}
+                <span class="ml-4 text-accent group-open:rotate-180 transition-transform">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-text-secondary leading-relaxed">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    </div>
+  </article>
+</Layout>

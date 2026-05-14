@@ -1,0 +1,144 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Usluge — Digitalna obaveštajna analiza i bezbednosna procena';
+const description = 'Kompletan spektar digitalnih obaveštajnih usluga: analiza digitalnog otiska, monitoring curenja podataka, zaštita brenda, obaveštajna analiza konkurencije, sigurnost emaila i domena.';
+
+const services = [
+  {
+    title: 'Digitalni otisak kompanije',
+    slug: 'digitalni-otisak',
+    shortDesc: 'Sve što internet zna o vašoj kompaniji — na jednom mestu.',
+    fullDesc: 'Kompletan pregled digitalnog prisustva vaše kompanije. Identifikujemo sve javno dostupne informacije koje napadači, konkurenti ili zainteresovane strane mogu da iskoriste — od registarskih podataka i zaboravljenih poddomena do arhiviranih dokumenata i javnih baza podataka.',
+    features: [
+      'Mapiranje svih domena i poddomena',
+      'Analiza javnih registara i baza',
+      'Pregled arhiviranih sadržaja (Wayback Machine)',
+      'Identifikacija curenja tehničkih informacija',
+      'Pregled društvenih mreža i javnih profila',
+      'Izveštaj sa prioritetnim preporukama'
+    ]
+  },
+  {
+    title: 'Monitoring curenja podataka',
+    slug: 'monitoring-curenja',
+    shortDesc: 'Provera da li su podaci vaše kompanije završili na dark webu.',
+    fullDesc: 'Sistematska provera da li su email nalozi, lozinke, interni dokumenti ili drugi poverljivi podaci vaše kompanije procureli na dark web, u javne baze curenja ili na neovlašćene platforme.',
+    features: [
+      'Pretraga baza curenja podataka',
+      'Dark web monitoring za kompanijske podatke',
+      'Provera kompromitovanih email naloga',
+      'Analiza curenja lozinki i kredencijala',
+      'Praćenje curenja finansijskih podataka',
+      'Redovni monitoring i upozorenja'
+    ]
+  },
+  {
+    title: 'Zaštita brenda',
+    slug: 'zastita-brenda',
+    shortDesc: 'Otkrivanje i sprečavanje zloupotrebe imena vaše kompanije online.',
+    fullDesc: 'Aktivno praćenje i identifikacija zloupotrebe imena, logoa i identiteta vaše kompanije na internetu — uključujući lažne sajtove, phishing kampanje, typosquat domena i neovlašćene profile na društvenim mrežama.',
+    features: [
+      'Praćenje typosquat i lookalike domena',
+      'Detekcija phishing stranica',
+      'Monitoring lažnih profila na društvenim mrežama',
+      'Praćenje neovlašćene upotrebe logoa',
+      'Analiza negativnog sadržaja i reputacije',
+      'Upozorenja u realnom vremenu'
+    ]
+  },
+  {
+    title: 'Obaveštajna analiza konkurencije',
+    slug: 'obavestajna-analiza',
+    shortDesc: 'Dubinsko razumevanje digitalne strategije vaših konkurenata.',
+    fullDesc: 'Strateška analiza digitalnog prisustva konkurenata koja vam daje uvid u njihove tehnologije, izvore saobraćaja, online strategije, slabosti i prilike u njihovom digitalnom okruženju.',
+    features: [
+      'Analiza tehnološkog steka konkurenata',
+      'Izvori saobraćaja i online vidljivost',
+      'Strategija sadržaja i ključne reči',
+      'Identifikacija slabosti i prilika',
+      'Pregred digitalnih kanala konkurenata',
+      'Strateške preporuke za vašu kompaniju'
+    ]
+  },
+  {
+    title: 'Email i domen sigurnost',
+    slug: 'email-domen-sigurnost',
+    shortDesc: 'Tehnička analiza DNS infrastrukture i email bezbednosti.',
+    fullDesc: 'Detaljna tehnička procena vaše DNS infrastrukture, email autentikacije (SPF, DMARC, DKIM) i potencijalnih ranjivosti koje napadači mogu iskoristiti za lažno predstavljanje ili napade na vašu kompaniju.',
+    features: [
+      'Analiza SPF, DMARC i DKIM konfiguracije',
+      'Provera subdomena i DNS zapisa',
+      'Certificate Transparency log analiza',
+      'Identifikacija email ranjivosti',
+      'Provera MX i nameserver zapisa',
+      'Preporuke za unapređenje sigurnosti'
+    ]
+  },
+  {
+    title: 'Website inteligencija',
+    slug: 'website-inteligencija',
+    shortDesc: 'Šta vaš javni sajt otkriva potencijalnim napadačima.',
+    fullDesc: 'Analiza informacija koje vaš javni veb sajt nehotice otkriva — tehnološki stek, struktura, metapodaci, skrivene direktorijume i druge tehničke detalje koje napadači koriste za planiranje ciljanih napada.',
+    features: [
+      'Identifikacija tehnološkog steka',
+      'Analiza metapodataka i curenja informacija',
+      'Pregled javno dostupnih direktorijuma',
+      'Analiza JavaScript-a i API endponita',
+      'Provera sigurnosnih zaglavlja',
+      'Preporuke za smanjenje informacionog curenja'
+    ]
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <div class="section-padding pt-24">
+    <div class="container-wide mx-auto">
+      <div class="max-w-3xl mb-16">
+        <h1 class="text-4xl md:text-5xl font-display mb-6">Naše usluge</h1>
+        <p class="text-text-secondary text-lg leading-relaxed">
+          Sveobuhvatna digitalna obaveštajna rešenja dizajnirana da kompanijama pruže 
+          potpunu sliku o njihovom prisustvu na internetu, potencijalnim rizicima i 
+          prilikama za unapređenje digitalne bezbednosti.
+        </p>
+      </div>
+      
+      <div class="space-y-8">
+        {services.map((service, i) => (
+          <article class="rounded-xl bg-bg-elevated accent-border overflow-hidden card-hover">
+            <div class="grid lg:grid-cols-3">
+              <div class="p-8 lg:col-span-2">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="font-display text-xs text-accent tracking-wider">0{i + 1}</span>
+                  <div class="h-px flex-1 bg-border/50"></div>
+                </div>
+                <h2 class="text-2xl font-display mb-3 hover:text-accent transition-colors">
+                  <a href={`/usluge/${service.slug}/`}>{service.title}</a>
+                </h2>
+                <p class="text-text-secondary mb-6 leading-relaxed">{service.fullDesc}</p>
+                <ul class="grid md:grid-cols-2 gap-3">
+                  {service.features.map(f => (
+                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                      <svg class="w-4 h-4 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="p-8 lg:border-l border-border/50 flex flex-col justify-center bg-bg-surface/50">
+                <p class="text-text-muted text-sm mb-6">{service.shortDesc}</p>
+                <a href={`/usluge/${service.slug}/`} class="inline-flex items-center text-accent font-display text-sm tracking-wide hover:text-accent-glow transition-colors">
+                  Detaljnije
+                  <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>

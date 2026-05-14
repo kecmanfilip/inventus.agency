@@ -1,0 +1,137 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Dark web monitoring za firme — šta treba da znate';
+const description = 'Dark web nije samo mesto ilegalnih aktivnosti — to je i tržište ukradenih podataka. Saznajte kako funkcioniše monitoring i kako da reagujete ako vaši podaci procure.';
+const publishedDate = '2025-03-28';
+---
+
+<Layout title={title} description={description} article={true} publishedDate={publishedDate}>
+  <article class="section-padding pt-24">
+    <div class="container-narrow mx-auto px-6">
+      <header class="mb-12">
+        <div class="flex items-center gap-3 text-sm text-text-muted font-display mb-6">
+          <a href="/blog/" class="hover:text-accent transition-colors">Blog</a>
+          <span>/</span>
+          <span>Dark web</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-display mb-6">{title}</h1>
+        <div class="flex items-center gap-4 text-sm text-text-muted">
+          <time datetime={publishedDate}>28. mart 2025.</time>
+          <span>·</span>
+          <span>8 minuta čitanja</span>
+        </div>
+      </header>
+      
+      <div class="prose prose-invert max-w-none">
+        <p class="text-xl text-text-secondary leading-relaxed mb-8">
+          <strong>Dark web monitoring</strong> je proces praćenja skrivenih delova interneta gde se 
+          prodaju ukradeni podaci, razmenjuju hakovane informacije i organizuju cyber napadi. Za kompanije, 
+          ovo nije pitanje "da li" će podaci procuriti — već "kada" i "kako brzo ćete saznati".
+        </p>
+        
+        <h2 class="text-2xl font-display mt-12 mb-4">Šta je dark web i čime se razlikuje od interneta koji koristimo svakodnevno?</h2>
+        <p class="text-text-secondary leading-relaxed mb-4">
+          Internet koji većina ljudi koristi — Google, Facebook, novinski sajtovi — čini samo 
+          mali deo globalne mreže. Procenjuje se da je vidljivi internet manji od 5% celokupnog 
+          sadržaja. Ostatak čine duboki veb (deep web) — legitiman sadržaj koji nije indeksiran 
+          pretraživačima, kao što su medicinski zapisi ili akademski radovi — i tamni veb (dark web), 
+          deo interneta koji zahteva specijalizovane alate za pristup i namerava anonimnost korisnika.
+        </p>
+        <p class="text-text-secondary leading-relaxed mb-8">
+          Dark web nije po definiciji ilegalan. Međutim, njegova anonimnost ga čini privlačnim za 
+          one koji žele da kupuju i prodaju ukradene podatke, lažne identitete i druge ilegalne 
+          usluge. Za kompanije, najveći rizik predstavljaju marketplaci na kojima se prodaju 
+          kompromitovani podaci.
+        </p>
+        
+        <h2 class="text-2xl font-display mt-12 mb-4">Koje vrste podataka se najčešće prodaju na dark webu?</h2>
+        <p class="text-text-secondary leading-relaxed mb-6">
+          Na dark web marketplacima možete pronaći različite kategorije ukradenih podataka. 
+          Evo najčešćih koje direktno utiču na kompanije:
+        </p>
+        
+        <table class="w-full text-sm mb-8 border-collapse">
+          <thead>
+            <tr class="border-b border-border">
+              <th class="text-left py-3 pr-4 font-display text-text-primary">Tip podataka</th>
+              <th class="text-left py-3 font-display text-text-primary">Opis</th>
+            </tr>
+          </thead>
+          <tbody class="text-text-secondary">
+            <tr class="border-b border-border/50">
+              <td class="py-3 pr-4">Kredencijali (email/lozinka)</td>
+              <td class="py-3">Kombinacije email adresa i lozinki koje se prodaju u velikim bazama</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="py-3 pr-4">Interni dokumenti</td>
+              <td class="py-3">Finansijski izveštaji, ugovori, tehnička dokumentacija</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="py-3 pr-4">Baze klijenata</td>
+              <td class="py-3">Lični podaci klijenata — imena, adrese, brojevi telefona</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="py-3 pr-4">Pristupni podaci sistema</td>
+              <td class="py-3">VPN kredencijali, RDP pristupi, API ključevi</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4">Komunikacija</td>
+              <td class="py-3">Emailovi, chat poruke, interne komunikacije iz kompromitovanih sistema</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h2 class="text-2xl font-display mt-12 mb-4">Kako funkcioniše dark web monitoring?</h2>
+        <p class="text-text-secondary leading-relaxed mb-4">
+          Dark web monitoring podrazumeva sistematično pretraživanje skrivenih delova interneta 
+          u potrazi za informacijama koje se odnose na vašu kompaniju. Ovo uključuje:
+        </p>
+        <ol class="space-y-3 text-text-secondary mb-8 list-decimal list-inside">
+          <li><strong>Pretragu po identifikatorima</strong> — pretražujemo po imenu kompanije, domenima, email adresama i drugim jedinstvenim identifikatorima.</li>
+          <li><strong>Praćenje marketplaca</strong> monitoringujemo poznate dark web marketplace gde se prodaju ukradeni podaci.</li>
+          <li><strong>Analizu curenja</strong> — kada pronađemo curenje, analiziramo obim, vrstu podataka i potencijalni uticaj.</li>
+          <li><strong>Obaveštavanje klijenta</strong> — dostavljamo detaljan izveštaj sa preporukama za postupanje.</li>
+        </ol>
+        
+        <h2 class="text-2xl font-display mt-12 mb-4">Kako reagovati ako vaši podaci procure?</h2>
+        <p class="text-text-secondary leading-relaxed mb-4">
+          Ako otkrijete da su podaci vaše kompanije završili na dark webu, važno je ostati smireni 
+          i postupiti sistematično. Evo preporučenih koraka:
+        </p>
+        <ul class="space-y-3 text-text-secondary mb-8">
+          <li class="flex items-start gap-2">
+            <span class="text-accent mt-1">1.</span>
+            <span><strong>Procenite obim curenja</strong> — šta tačno procurilo? Samo email adrese ili i lozinke? Interni dokumenti?</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent mt-1">2.</span>
+            <span><strong>Promenite kompromitovane lozinke</strong> — odmah promenite lozinke za sve naloge povezane sa curelim podacima.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent mt-1">3.</span>
+            <span><strong>Obavestite zaposlene</strong> — ako su cureli lični podaci zaposlenih, obavestite ih da budu oprezni sa phishing emailovima.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent mt-1">4.</span>
+            <span><strong>Uključite IT bezbednosni tim</strong> — procenite da li curenje ukazuje na aktivni proboj u sisteme.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent mt-1">5.</span>
+            <span><strong>Razmislite o obavesti klijenata</strong> — u zavisnosti od zakonskih obaveza i obima curenja.</span>
+          </li>
+        </ul>
+        
+        <div class="p-6 rounded-xl bg-bg-elevated accent-border my-12">
+          <h3 class="font-display text-lg mb-3 text-accent">Zaključak</h3>
+          <p class="text-text-secondary leading-relaxed">
+            Dark web monitoring nije paranoja — to je razumna poslovna praksa. U svetu gde se 
+            podaci kompanija rutinski kradu i prodaju, sposobnost da brzo otkrijete curenje i 
+            reagujete može biti razlika između manjeg incidenta i ozbiljne krize. Redovni monitoring 
+            je investicija u bezbednost koja se isplati.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout>
