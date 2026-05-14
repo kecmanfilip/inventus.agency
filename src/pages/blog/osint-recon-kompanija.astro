@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Kako napadači prikupljaju informacije o vašoj kompaniji pre napada';
+const description = 'OSINT reconnaissance: tehnike koje napadači koriste da prikupe informacije o kompanijama pre ciljanog napada. Saznajte šta se o vama može pronaći online.';
+const date = '2025-05-12';
+const readTime = '9 min';
+---
+
+<Layout title={title} description={description} article={true} publishedDate={date}>
+  <article class="section-padding pt-24">
+    <div class="container-narrow mx-auto">
+      <div class="mb-12">
+        <div class="flex items-center gap-3 text-sm text-text-muted font-display mb-6">
+          <a href="/blog/" class="hover:text-accent transition-colors">Blog</a>
+          <span>/</span>
+          <span>OSINT</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-display mb-6 leading-tight">{title}</h1>
+        <div class="flex items-center gap-4 text-sm text-text-muted">
+          <span>{date}</span>
+          <span>·</span>
+          <span>{readTime} čitanja</span>
+        </div>
+      </div>
+
+      <div class="prose prose-invert max-w-none">
+        <p class="text-xl text-text-secondary leading-relaxed mb-8">
+          Pre nego što napadač pošalje prvi phishing email ili pokuša eksploataciju servera, 
+          on već zna ko ste, kako funkcionišete i gde su vaše slabosti. Sve zahvaljujući 
+          informacijama koje ste sami objavili na internetu.
+        </p>
+
+        <h2>Faza 1: Pasive reconnaissance — gledanje bez dodira</h2>
+        <p>
+          U prvoj fazi napadač ne interaguje direktno sa vašim sistemima. Umesto toga, 
+          prikuplja sve što je javno dostupno:
+        </p>
+        <ul>
+          <li><strong>DNS zapisi</strong> — Svi domeni i poddomeni povezani sa kompanijom, uključujući one koje ste zaboravili</li>
+          <li><strong>Javni registri</strong> — Podaci o vlasništvu, osnivačima, historiji promena</li>
+          <li><strong>Arhive</strong> — Wayback Machine čuva verzije vaših sajtova godinama unazad</li>
+          <li><strong>Društvene mreže</strong> — LinkedIn profili zaposlenih, objave o tehnologijama, procesima, pa čak i frustracijama</li>
+        </ul>
+        <p>
+          Jedna objava na LinkedIn-u tipa "Radimo migraciju na novi AWS server" može 
+          napadaču dati informaciju o vašoj infrastrukturi. Slika sa kancelarije može 
+          otkriti verziju softvera na ekranu.
+        </p>
+
+        <h2>Faza 2: Mapiranje infrastrukture — šta radi i kako</h2>
+        <p>
+          Kada napadač ima listu domena, počinje tehničku analizu:
+        </p>
+        <ul>
+          <li><strong>Tehnološki stek</strong> — Koji CMS, framework, server koristite? Zastarela verzija može imati poznatu ranjivost</li>
+          <li><strong>Subdomeni</strong> — Test.okruženje.vas-sajt.rs često nema istu zaštitu kao produkcija</li>
+          <li><strong>Certificate Transparency logovi</strong> — Svaki novi SSL sertifikat je javno vidljiv, otkrivajući nove servise</li>
+          <li><strong>Metapodaci u dokumentima</strong> — Autor, softver, datum kreiranja — sve je u PDF-ovima i prezentacijama</li>
+        </ul>
+
+        <h2>Faza 3: Identifikacija ljudi — socijalni inženjering</h2>
+        <p>
+          Tehnički napadi su skuplji i rizičniji. Mnogi napadači preferiraju 
+          <strong>socijalni inženjering</strong> — manipulaciju ljudima da otkriju poverljive informacije.
+        </p>
+        <p>
+          Za ovu fazu koriste:
+        </p>
+        <ul>
+          <li>Liste zaposlenih sa LinkedIn-a sa imenom, pozicijom, odeljenjem</li>
+          <li>Email formate (ime.prezime@kompanija.rs) koje lako pogode</li>
+          <li>Informacije o IT timu — ko odgovara na tehničke probleme</li>
+          <li>Detalji o dobavljačima i partnerima — koga zaposleni veruju</li>
+        </ul>
+        <p>
+          Kada napadač zna da je Petar Petrović iz IT odeljenja, može poslati email 
+          "od" njegovog šefa sa zahtevom za hitnu promenu lozinke. Ako je verovatan 
+          dovoljno, zaposleni će kliknuti.
+        </p>
+
+        <h2>Šta možete da uradite danas</h2>
+        <p>
+          Najefikasnija odbrana je <strong>znanje</strong>. Saznajte šta internet zna o vama 
+          pre nego što to iskoristi neko drugi:
+        </p>
+        <ol>
+          <li>Pretražite svoj domen na <code>viewdns.info</code> — vidite sve poddomene</li>
+          <li>Proverite <code>haveibeenpwned.com</code> za kompanijske email adrese</li>
+          <li>Pogledajte Wayback Machine za arhive vašeg sajta</li>
+          <li>Pretražite GitHub za kompanijskim domenom — možda neko objavio više nego što treba</li>
+        </ol>
+        <p>
+          Ili jednostavno — kontaktirajte nas. Mi radimo ovakvu analizu svakodnevno 
+          i znamo gde da gledamo.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>

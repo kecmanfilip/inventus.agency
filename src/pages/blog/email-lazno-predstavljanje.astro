@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'DMARC, SPF, DKIM: Zašto email lažno predstavljanje i dalje funkcioniše u 2025.';
+const description = 'Tehničko objašnjenje zašto email autentikacija često ne radi i kako napadaći lažno predstavljaju kompanije. Praktični saveti za zaštitu.';
+const date = '2025-04-28';
+const readTime = '8 min';
+---
+
+<Layout title={title} description={description} article={true} publishedDate={date}>
+  <article class="section-padding pt-24">
+    <div class="container-narrow mx-auto">
+      <div class="mb-12">
+        <div class="flex items-center gap-3 text-sm text-text-muted font-display mb-6">
+          <a href="/blog/" class="hover:text-accent transition-colors">Blog</a>
+          <span>/</span>
+          <span>Email sigurnost</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-display mb-6 leading-tight">{title}</h1>
+        <div class="flex items-center gap-4 text-sm text-text-muted">
+          <span>{date}</span>
+          <span>·</span>
+          <span>{readTime} čitanja</span>
+        </div>
+      </div>
+
+      <div class="prose prose-invert max-w-none">
+        <p class="text-xl text-text-secondary leading-relaxed mb-8">
+          Svaki dan se šalje 3,4 milijardi lažnih emailova. Najveći deo ih ne stigne 
+          do inbox-a zahvaljujući SPF, DKIM i DMARC zaglavljima. Ali kad stigne — 
+          posledice su ozbiljne. I većina kompanija misli da je zaštićena, a nije.
+        </p>
+
+        <h2>Šta rade SPF, DKIM i DMARC</h2>
+        <p>
+          Ova tri mehanizma rade zajedno da potvrde identitet pošiljaoca emaila:
+        </p>
+        <ul>
+          <li><strong>SPF (Sender Policy Framework)</strong> — DNS zapis koji navodi koji serveri smeju da šalju email u ime vašeg domena. Ako email stigne sa servera koji nije na listi, primatelj zna da je sumnjiv.</li>
+          <li><strong>DKIM (DomainKeys Identified Mail)</strong> — Digitalni potpis koji garantuje da sadržaj emaila nije promenjen tokom transporta. Svaki odlazni email se potpisuje privatnim ključem, a primatelj verifikuje javnim ključem iz DNS-a.</li>
+          <li><strong>DMARC (Domain-based Message Authentication)</strong> — Politika koja govori primatelju šta da radi ako SPF ili DKIM ne prođu. Takođe omogućava prijavljivanje o neuspešnim pokušajima, pa vidite ko lažno predstavlja vaš domen.</li>
+        </ul>
+
+        <h2>Zašto ovo često ne radi</h2>
+        <p>
+          U našim analizama, nailazimo na iste probleme iznova:
+        </p>
+        <ol>
+          <li><strong>SPF dozvoljava previše</strong> — <code>+all</code> ili previše IP adresa znači da gotovo svako može slati u vaše ime</li>
+          <li><strong>DKIM ključ je javno dostupan</strong> — Pogrešna konfiguracija može otkriti sam ključ koji treba da ostane tajan</li>
+          <li><strong>DMARC je podešen na <code>p=none</code></strong> — Ovo znači "samo prijavi, ne radi ništa". Lažni emailovi i dalje stižu do inbox-a</li>
+          <li><strong>DMARC uopšte ne postoji</strong> — Bez DMARC-a, primatelj ne zna šta da radi sa sumnjivim emailovima</li>
+          <li><strong>Subdomeni nisu pokriveni</strong> — Glavni domen ima SPF, ali <code>mail.kompanija.rs</code> nema ništa</li>
+        </ol>
+
+        <h2>Kako napadač iskoristi lošu konfiguraciju</h2>
+        <p>
+          Scenario je jednostavan:
+        </p>
+        <ol>
+          <li>Napadač registruje besplatan email server (npr. na VPS-u za 5$ mesecno)</li>
+          <li>Šalje email sa <code> From: direktor@vasa-kompanija.rs</code></li>
+          <li>Vaš domen nema DMARC sa <code>p=reject</code> — email prolazi filtre</li>
+          <li>Zaposleni vidi email od "direktora" i klikne na link</li>
+        </ol>
+        <p>
+          Ceo napad košta napadača manje od kafe, a može dovesti do kompromitovanja 
+          celokupne mreže.
+        </p>
+
+        <h2>Kako proveriti svoju konfiguraciju</h2>
+        <p>
+          Evo tri brze provere koje možete uraditi sami:
+        </p>
+        <ul>
+          <li><strong>SPF:</strong> <code>dig TXT vasa-kompanija.rs</code> — tražite red koji počinje sa <code>v=spf1</code></li>
+          <li><strong>DKIM:</strong> <code>dig TXT default._domainkey.vasa-kompanija.rs</code> — trebalo bi da postoji</li>
+          <li><strong>DMARC:</strong> <code>dig TXT _dmarc.vasa-kompanija.rs</code> — trebalo bi da sadrži <code>p=reject</code> ili <code>p=quarantine</code></li>
+        </ul>
+        <p>
+          Ako bilo koji od ovih nedostaje, vaša kompanija je ranjiva na email lažno predstavljanje.
+        </p>
+
+        <h2>Šta preporučujemo</h2>
+        <p>
+          Idealna konfiguracija za većinu kompanija:
+        </p>
+        <ul>
+          <li>SPF: Striktna lista dozvoljenih servera, bez <code>+all</code></li>
+          <li>DKIM: Podešen za sve odlazne servere, ključevi rotirani svake godine</li>
+          <li>DMARC: <code>p=reject</code> sa RUA izveštajima na monitoring email</li>
+          <li>Subdomeni: Svaki aktivni subdomen ima svoj SPF i DMARC</li>
+        </ul>
+        <p>
+          Implementacija je tehnički jednostavna — zahteva samo promenu DNS zapisa. 
+          Ali efekat je značajan: lažni emailovi sa vašeg domena više neće stizati 
+          do inbox-a vaših klijenata i partnera.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>

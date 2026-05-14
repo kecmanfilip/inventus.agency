@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Studije slučaja — Primeri digitalne obaveštajne analize | Inventus';
+const description = 'Realni scenariji iz naših analiza: kako smo otkrili curenje podataka, lažne sajtove i ranjivosti za kompanije u Srbiji i regionu.';
+
+const cases = [
+  {
+    industry: 'Fintech',
+    size: '45 zaposlenih',
+    problem: 'Kompanija je primetila povećan broj phishing pokušaja upućenih zaposlenima. IT tim je sumnjao da su podaci o strukturi kompanije dostupni javno.',
+    findings: [
+      '23 zaboravljena poddomena, od kojih 4 sa aktivnim admin panelima bez autentikacije',
+      '7 kompanijskih email naloga u javnim bazama curenja (uključujući 1 admin nalog)',
+      '2 aktivne phishing stranice koje kopiraju login portal kompanije',
+      'Interna prezentacija sa detaljima o API arhitekturi dostupna na Google Drive linku',
+      'Nekonfigurisan DMARC — moguće lažno predstavljanje sa kompanijskog domena'
+    ],
+    impact: 'Kompanija je u roku od 48 sati uklonila javno dostupne podatke, promenila kompromitovane lozinke i implementirala DMARC. Phishing sajtovi su prijavljeni hosting provajderima i uklonjeni za 72 sata.',
+    timeframe: '5 radnih dana'
+  },
+  {
+    industry: 'Proizvodnja / Izvoz',
+    size: '120 zaposlenih',
+    problem: 'Vlasnik kompanije je želeo da proceni šta konkurencija može da sazna o njegovom poslovanju pre nego što pokrene proširenje na nova tržišta.',
+    findings: [
+      'Kompletna lista dobavljača i cenomat dostupna u arhiviranom PDF-u sa sajta',
+      '3 typosquat domena registrovana u poslednjih 8 meseci (verovatno od strane konkurencije)',
+      'Detaljna tehnološka dokumentacija o proizvodnom procesu u javnom GitHub repozitorijumu',
+      'LinkedIn profil bivšeg zaposlenog sa kompletom specifikacijama proizvoda u javnom postu',
+      'Neažurirani sajt filijale u inostranstvu sa zastarelim kontaktima i adresama'
+    ],
+    impact: 'Kompanija je uklonila osetljive dokumente, registrovala varijante svog domena, ažurirala sajtove filijala i uvela internu politiku o objavljivanju informacija na društvenim mrežama.',
+    timeframe: '7 radnih dana'
+  },
+  {
+    industry: 'IT Konsalting',
+    size: '30 zaposlenih',
+    problem: 'Novi klijent je zahtevao dokaz da kompanija shvata bezbednost ozbiljno pre nego što potpiše ugovor o razvoju softvera.',
+    findings: [
+      'SPF record koji dozvoljava 18 različitih IP adresa — uključujući 3 nepoznata provajdera',
+      '5 subdomena bez validnih SSL sertifikata, od kojih 1 sa aktivnim staging okruženjem',
+      'API ključevi i database connection stringovi u javnim GitHub repozitorijumima',
+      'Zaposleni koriste lične email adrese za kompanijske servise — 12 naloga van kontrole IT tima',
+      'Wayback Machine sadrži 47 arhiviranih verzija sajta sa različitim strukturama i informacijama'
+    ],
+    impact: 'Kompanija je restrukturirala DNS konfiguraciju, implementirala upravljanje tajnama (secret management), uklonila API ključeve i uvela SSO autentikaciju. Klijent je potpisao ugovor nakon verifikacije ispravki.',
+    timeframe: '4 radna dana'
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <div class="section-padding pt-24">
+    <div class="container-wide mx-auto">
+      <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/30 bg-accent/5 mb-8">
+          <span class="font-display text-xs tracking-wider text-accent uppercase">Studije slučaja</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-display mb-6">
+          Šta smo <span class="text-gradient">otkrili</span> za klijente
+        </h1>
+        <p class="text-text-secondary text-lg leading-relaxed">
+          Ovo su ilustrovani scenariji bazirani na tipičnim nalazima iz naših analiza. 
+          Svaki primer pokazuje vrstu rizika koje kompanije rutinski podcenjuju — 
+          dok napadači i konkurencija to ne čine.
+        </p>
+      </div>
+
+      {cases.map((c, i) => (
+        <article class="mb-16 last:mb-0 reveal">
+          <div class="grid lg:grid-cols-3 gap-8 mb-8">
+            <div class="lg:col-span-1">
+              <div class="p-6 rounded-xl bg-bg-elevated accent-border h-full">
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="px-2 py-1 rounded text-xs font-display bg-accent/10 text-accent">{c.industry}</span>
+                  <span class="text-text-muted text-xs">{c.size}</span>
+                </div>
+                <h2 class="text-xl font-display mb-4">Scenarij 0{i + 1}</h2>
+                <div class="space-y-3 text-sm">
+                  <div>
+                    <span class="text-text-muted block text-xs mb-1">Rok</span>
+                    <span class="text-text-secondary">{c.timeframe}</span>
+                  </div>
+                  <div>
+                    <span class="text-text-muted block text-xs mb-1">Nalazi</span>
+                    <span class="text-accent font-display">{c.findings.length} kritičnih tačaka</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-2 space-y-6">
+              <div>
+                <h3 class="font-display text-lg mb-2 text-text-muted">Situacija</h3>
+                <p class="text-text-secondary leading-relaxed">{c.problem}</p>
+              </div>
+              <div>
+                <h3 class="font-display text-lg mb-3 text-text-muted">Ključni nalazi</h3>
+                <ul class="space-y-2">
+                  {c.findings.map(item => (
+                    <li class="flex items-start gap-3">
+                      <svg class="w-4 h-4 text-accent flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"></path>
+                      </svg>
+                      <span class="text-text-secondary text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="p-6 rounded-xl bg-accent/5 border border-accent/20">
+                <h3 class="font-display text-lg mb-2 text-accent">Rezultat</h3>
+                <p class="text-text-secondary text-sm leading-relaxed">{c.impact}</p>
+              </div>
+            </div>
+          </div>
+          {i < cases.length - 1 && <div class="h-px bg-border/50"></div>}
+        </article>
+      ))}
+
+      <div class="relative rounded-2xl bg-bg-elevated accent-border p-12 md:p-16 text-center overflow-hidden reveal mt-20">
+        <div class="absolute inset-0 bg-gradient-to-r from-accent/5 to-transparent pointer-events-none"></div>
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-display mb-6">
+            Šta internet zna o <span class="text-gradient">vašoj</span> kompaniji?
+          </h2>
+          <p class="text-text-secondary mb-10 leading-relaxed">
+            Svaka analiza počinje besplatnim osnovnim skenom. Bez obaveze. Bez kreditne kartice.
+          </p>
+          <a href="/kontakt/" class="inline-flex items-center px-8 py-4 bg-accent text-bg-primary font-display font-medium text-sm tracking-wide rounded hover:bg-accent-glow transition-colors">
+            Zatražite besplatni sken
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

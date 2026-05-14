@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = '5 stvari koje vaš javni sajt otkriva napadačima — a vi to ne znate';
+const description = 'Vaš javni veb sajt je zlatna kopa informacija za napadače. Tehnološki stek, metapodaci, skrivene direktorijume — sve je dostupno svakome ko zna gde da gleda.';
+const date = '2025-05-05';
+const readTime = '7 min';
+---
+
+<Layout title={title} description={description} article={true} publishedDate={date}>
+  <article class="section-padding pt-24">
+    <div class="container-narrow mx-auto">
+      <div class="mb-12">
+        <div class="flex items-center gap-3 text-sm text-text-muted font-display mb-6">
+          <a href="/blog/" class="hover:text-accent transition-colors">Blog</a>
+          <span>/</span>
+          <span>Website Intelligence</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-display mb-6 leading-tight">{title}</h1>
+        <div class="flex items-center gap-4 text-sm text-text-muted">
+          <span>{date}</span>
+          <span>·</span>
+          <span>{readTime} čitanja</span>
+        </div>
+      </div>
+
+      <div class="prose prose-invert max-w-none">
+        <p class="text-xl text-text-secondary leading-relaxed mb-8">
+          Vaš sajt je dizajniran da informiše klijente i partnere. Ali istovremeno 
+          otkriva detalje koje niste nameravali da podelite — napadačima, konkurentima 
+          i bilo kome ko zna kako da pročita između redova.
+        </p>
+
+        <h2>1. Tehnološki stek — šta koristite i koje su verzije</h2>
+        <p>
+          Svaki sajt "pjeva" o tehnologijama koje pokreću. HTTP zaglavlja otkrivaju 
+          web server (nginx, Apache), programski jezik (PHP, Node.js, Python), pa čak 
+          i verziju CMS-a (WordPress 5.8.1, Joomla 3.9).
+        </p>
+        <p>
+          <strong>Zašto je to problem:</strong> Zastarela verzija softvera ima poznate ranjivosti. 
+          Ako napadač zna da koristite WordPress 5.8.1, on zna tačno koje CVE-ove može da iskoristi.
+        </p>
+        <p>
+          <strong>Kako proveriti:</strong> Otvorite Developer Tools (F12) → Network → kliknite 
+          na bilo koji zahtev → Headers. Pogledajte <code>X-Powered-By</code> i <code>Server</code> polja.
+        </p>
+
+        <h2>2. Metapodaci — šta dokumenti kriju</h2>
+        <p>
+          Svaki PDF, Word dokument ili prezentacija na vašem sajtu sadrži metapodatke: 
+          ko je autor, koji softver je korišćen, kada je kreiran, gde je sačuvan.
+        </p>
+        <p>
+          Ako imate PDF "Cenovnik 2025.pdf" čiji autor je "Petar P. — IT Odeljenje", 
+          napadač zna ime osobe odgovorne za IT i može ciljati phishing na nju.
+        </p>
+        <p>
+          <strong>Kako proveriti:</strong> Preuzmite bilo koji PDF sa svog sajta. 
+          U Adobe Acrobat-u: File → Properties → Description. Ili u terminalu: 
+          <code>exiftool dokument.pdf</code>.
+        </p>
+
+        <h2>3. Skrivene direktorijume — šta ste zaboravili obrisati</h2>
+        <p>
+          <code>/backup/</code>, <code>/test/</code>, <code>/admin/</code>, <code>/old/</code> — 
+          ovi direktorijumi postoje na više sajtova nego što bi trebalo. Često sadrže 
+          zastarele verzije sajtova, nezaštićene administrativne panele ili direktan 
+          pristup fajlovima.
+        </p>
+        <p>
+          <strong>Zašto je to problem:</strong> <code>/backup/database.sql</code> može 
+          sadržati kompletnu bazu podataka. <code>/test/phpinfo.php</code> otkriva 
+          kompletnu konfiguraciju servera.
+        </p>
+
+        <h2>4. JavaScript i API endpointi — mapa vaših servisa</h2>
+        <p>
+          Moderni sajtovi puni su JavaScript-a koji komunicira sa API-jevima. 
+          Pregledom JavaScript fajlova napadač može otkriti:
+        </p>
+        <ul>
+          <li>Interne API endpointe (<code>/api/v2/users</code>)</li>
+          <li>API ključeve hardkodovane u frontend-u</li>
+          <li>Strukturu podataka i logiku aplikacije</li>
+          <li>URL-ove staging i development okruženja</li>
+        </ul>
+
+        <h2>5. Sigurnosna zaglavlja — šta vam nedostaje</h2>
+        <p>
+          Sigurnosna HTTP zaglavlja kao što su CSP, HSTS, X-Frame-Options i Content-Type 
+          su indikator koliko ozbiljno kompanija shvata bezbednost. Njihovo odsustvo 
+          ne čini sajt direktno ranjivim, ali signalizira napadaču da je meta vredna 
+          dodatnog istraživanja.
+        </p>
+
+        <h2>Zaključak: Vaš sajt je prozor u vašu organizaciju</h2>
+        <p>
+          Napadači ne počinju sa eksploatacijom — počinju sa prikupljanjem informacija. 
+          Vaš javni sajt je prvo mesto gde gledaju. Ako tamo pronađu dovoljno, 
+          imaju mapu vaše organizacije pre nego što pošalju prvi email.
+        </p>
+        <p>
+          Redovna analiza onoga što vaš sajt otkriva nije paranoia — to je higijena. 
+          Baš kao što redovno ažurirate softver, trebalo bi redovno proveravati 
+          šta vaš digitalni otisak otkriva o vama.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>

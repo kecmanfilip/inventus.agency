@@ -1,0 +1,127 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Due diligence u digitalnom dobu: Šta M&A timovi propuste pre akvizicije';
+const description = 'Digitalna due diligence za M&A transakcije: koje informacije o ciljnoj kompaniji su dostupne online i kako ih legalno prikupiti pre potpisivanja ugovora.';
+const date = '2025-04-20';
+const readTime = '11 min';
+---
+
+<Layout title={title} description={description} article={true} publishedDate={date}>
+  <article class="section-padding pt-24">
+    <div class="container-narrow mx-auto">
+      <div class="mb-12">
+        <div class="flex items-center gap-3 text-sm text-text-muted font-display mb-6">
+          <a href="/blog/" class="hover:text-accent transition-colors">Blog</a>
+          <span>/</span>
+          <span>M&A</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-display mb-6 leading-tight">{title}</h1>
+        <div class="flex items-center gap-4 text-sm text-text-muted">
+          <span>{date}</span>
+          <span>·</span>
+          <span>{readTime} čitanja</span>
+        </div>
+      </div>
+
+      <div class="prose prose-invert max-w-none">
+        <p class="text-xl text-text-secondary leading-relaxed mb-8">
+          Tradicionlna due diligence proverava finansije, pravnu strukturu i operativne 
+          procese. Ali u 2025. godini, digitalni otisak kompanije može biti jednako 
+          važan — i češće se zanemaruje.
+        </p>
+
+        <h2>Digitalni rizik kao deo M&A procene</h2>
+        <p>
+          Kada kupujete kompaniju, kupujete i njenu digitalnu prošlost. To uključuje:
+        </p>
+        <ul>
+          <li><strong>Curenje podataka</strong> — Da li su podaci ciljne kompanije već bili kompromitovani? Ko ima pristup?</li>
+          <li><strong>Tehnički dug</strong> — Koliko je infrastruktura zastarela? Koliko košta modernizacija?</li>
+          <li><strong>Reputacioni rizik</strong> — Šta internet "zna" o kompaniji? Negativni sadržaj, skandali, recenzije?</li>
+          <li><strong>Intelektualna svojina</strong> — Da li su patente, kodovi ili dokumenti izloženi javno?</li>
+          <li><strong>Regulatorni rizik</strong> — Da li kompanija ispunjava GDPR, SOC2, ISO 27001 sa aspekta javno dostupnih informacija?</li>
+        </ul>
+
+        <h2>Šta se može otkriti iz javnih izvora</h2>
+        <p>
+          Pre nego što potpišete NDA ili pristupite internim sistemima, možete saznati 
+          značajne stvari iz isključivo javnih izvora:
+        </p>
+
+        <h3>1. Tehnička infrastruktura</h3>
+        <p>
+          DNS zapisi, subdomeni, tehnološki stek, cloud provajderi — sve je javno dostupno. 
+          Ako ciljna kompanija koristi zastarelu verziju softvera sa poznatim ranjivostima, 
+          to je trošak koji treba uključiti u procenu.
+        </p>
+
+        <h3>2. Curenje podataka</h3>
+        <p>
+          Provera javnih baza curenja može otkriti da su email nalozi, lozinke ili 
+          interni dokumenti ciljne kompanije već bili izloženi. Ovo nije samo 
+          tehnički problem — to je regulatorni rizik koji može uticati na vrednost 
+          transakcije.
+        </p>
+
+        <h3>3. Digitalni identitet i brend</h3>
+        <p>
+          Lažni sajtovi, typosquat domeni, neovlašćeni profili na društvenim mrežama — 
+          sve ovo utiče na vrednost brenda koju kupujete. Ako neko već zloupotrebljava 
+          identitet kompanije, to je problem koji treba rešiti pre nego što preuzmete odgovornost.
+        </p>
+
+        <h3>4. Ljudski kapital i kultura</h3>
+        <p>
+          LinkedIn analiza može otkriti stopu rotacije zaposlenih, odnose sa bivšim 
+          zaposlenima, pa čak i frustracije koje mogu uticati na integraciju nakon akvizicije. 
+          Glassdoor recenzije, objave na društvenim mrežama, komentari na forumima — 
+          sve je to dostupno i relevantno.
+        </p>
+
+        <h2>Legalni okvir digitalne due diligence</h2>
+        <p>
+          Ključno pitanje: <strong>Da li je legalno prikupljati ove informacije?</strong>
+        </p>
+        <p>
+          U većini jurisdikcija, uključujući Srbiju, prikupljanje javno dostupnih 
+          informacija je legalno pod uslovom da:
+        </p>
+        <ul>
+          <li>Ne pristupate zaštićenim sistemima bez ovlašćenja</li>
+          <li>Ne koristite ilegalne metode (hakovanje, socijalni inženjering)</li>
+          <li>Ne narušavate privatnost pojedinaca (GDPR, Zakon o zaštiti podataka)</li>
+          <li>Ne koristite prikupljene podatke za nezakonite svrhe</li>
+        </ul>
+        <p>
+          OSINT (Open Source Intelligence) principi su dizajnirani upravo za ovakve 
+          situacije — prikupljanje informacija iz izvora koje je vlasnik učinio javnim.
+        </p>
+
+        <h2>Kako izgleda proces digitalne due diligence</h2>
+        <p>
+          Tipična analiza traje 5-10 radnih dana i obuhvata:
+        </p>
+        <ol>
+          <li><strong>Inicijalno mapiranje</strong> — Identifikacija svih domena, subdomena i digitalnih aktivnosti</li>
+          <li><strong>Analiza ranjivosti</strong> — Provera tehničke infrastrukture, curenja podataka, email sigurnosti</li>
+          <li><strong>Reputaciona analiza</strong> — Praćenje negativnog sadržaja, medijskih spominjanja, recenzija</li>
+          <li><strong>Konkurentska analiza</strong> — Poređenje digitalnog prisustva sa konkurentima u istoj industriji</li>
+          <li><strong>Izveštaj sa preporukama</strong> — Rangiranje rizika, procena troškova remedijacije, preporuke za integraciju</li>
+        </ol>
+
+        <h2>Zaključak: Digitalno je novo fizičko</h2>
+        <p>
+          U prošlosti bi pregledali fabriku, knjige i inventar. Danas je digitalni 
+          otisak kompanije jednako realan — i često sadrži više informacija nego 
+          što vlasnik misli.
+        </p>
+        <p>
+          Ignorisanje digitalne due diligence u M&A transakciji je ekvivalentno 
+          kupovini kuće bez provere da li postoje skriveni troškovi ili pravni problemi. 
+          Može proći. Ali kada ne prođe — cena je visoka.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>
