@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme {
+@theme inline {
   --color-bg-primary: #030712;
   --color-bg-surface: #0a0e1a;
   --color-bg-elevated: #111827;
@@ -110,7 +110,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Aurora background effect */
   .aurora-bg {
     position: relative;
     overflow: hidden;
@@ -136,7 +135,6 @@
     100% { transform: translate(1%, -1%) rotate(0.5deg); }
   }
 
-  /* Noise texture overlay */
   .noise-overlay {
     position: relative;
   }
@@ -150,7 +148,6 @@
     z-index: 1;
   }
 
-  /* Scroll reveal */
   .reveal {
     opacity: 0;
     transform: translateY(24px);
@@ -165,12 +162,10 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
 
-  /* Glow text */
   .glow-text {
     text-shadow: 0 0 40px rgba(6, 182, 212, 0.3), 0 0 80px rgba(6, 182, 212, 0.1);
   }
 
-  /* Stat counter */
   .stat-value {
     font-family: var(--font-display);
     font-size: 3rem;
@@ -182,7 +177,6 @@
     background-clip: text;
   }
 
-  /* Process timeline */
   .timeline-line {
     position: absolute;
     left: 1.5rem;
@@ -192,7 +186,6 @@
     background: linear-gradient(to bottom, rgba(6, 182, 212, 0.4), transparent);
   }
 
-  /* Scanline effect */
   .scanlines {
     position: relative;
   }
@@ -211,12 +204,10 @@
     z-index: 2;
   }
 
-  /* Trust badge style */
   .trust-badge {
     @apply px-4 py-2 rounded-full border border-border/50 bg-bg-elevated/50 text-text-muted text-xs font-display;
   }
 
-  /* Prose for legal pages */
   .prose-invert h2 {
     @apply text-xl font-display mb-4 text-accent mt-12;
   }
@@ -242,3 +233,26 @@
     @apply divide-y divide-border/50;
   }
 }
+
+  .hover\:bg-accent-glow:hover { background-color: #22d3ee; }
+  .hover\:bg-accent\/20:hover { background-color: rgba(6, 182, 212, 0.2); }
+  .hover\:border-accent\/50:hover { border-color: rgba(6, 182, 212, 0.5); }
+  .hover\:text-accent:hover { color: #06b6d4; }
+  .hover\:text-accent-glow:hover { color: #22d3ee; }
+  .hover\:text-text-primary:hover { color: #f0f0f5; }
+  .bg-accent\/5 { background-color: rgba(6, 182, 212, 0.05); }
+  .bg-accent\/10 { background-color: rgba(6, 182, 212, 0.1); }
+  .bg-accent\/20 { background-color: rgba(6, 182, 212, 0.2); }
+  .bg-accent\/30 { background-color: rgba(6, 182, 212, 0.3); }
+  .bg-bg-primary\/80 { background-color: rgba(3, 7, 18, 0.8); }
+  .bg-bg-primary\/95 { background-color: rgba(3, 7, 18, 0.95); }
+  .bg-bg-surface\/50 { background-color: rgba(10, 14, 26, 0.5); }
+  .bg-border\/50 { background-color: rgba(31, 41, 55, 0.5); }
+  .bg-text-muted\/10 { background-color: rgba(107, 114, 128, 0.1); }
+  .border-accent\/20 { border-color: rgba(6, 182, 212, 0.2); }
+  .border-accent\/30 { border-color: rgba(6, 182, 212, 0.3); }
+  .border-accent\/40 { border-color: rgba(6, 182, 212, 0.4); }
+  .border-accent\/50 { border-color: rgba(6, 182, 212, 0.5); }
+  .border-border\/30 { border-color: rgba(31, 41, 55, 0.3); }
+  .border-border\/50 { border-color: rgba(31, 41, 55, 0.5); }
+  .text-accent\/30 { color: rgba(6, 182, 212, 0.3); }

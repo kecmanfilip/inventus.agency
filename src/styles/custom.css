@@ -1,0 +1,23 @@
+.hover\:bg-accent-glow:hover { background-color: #22d3ee; }
+.hover\:bg-accent\/20:hover { background-color: rgba(6, 182, 212, 0.2); }
+.hover\:border-accent\/50:hover { border-color: rgba(6, 182, 212, 0.5); }
+.hover\:text-accent:hover { color: #06b6d4; }
+.hover\:text-accent-glow:hover { color: #22d3ee; }
+.hover\:text-text-primary:hover { color: #f0f0f5; }
+.bg-accent\/5 { background-color: rgba(6, 182, 212, 0.05); }
+.bg-accent\/10 { background-color: rgba(6, 182, 212, 0.1); }
+.bg-accent\/20 { background-color: rgba(6, 182, 212, 0.2); }
+.bg-accent\/30 { background-color: rgba(6, 182, 212, 0.3); }
+.bg-bg-primary\/80 { background-color: rgba(3, 7, 18, 0.8); }
+.bg-bg-primary\/95 { background-color: rgba(3, 7, 18, 0.95); }
+.bg-bg-surface\/50 { background-color: rgba(10, 14, 26, 0.5); }
+.bg-border\/50 { background-color: rgba(31, 41, 55, 0.5); }
+.bg-text-muted\/10 { background-color: rgba(107, 114, 128, 0.1); }
+.border-accent\/20 { border-color: rgba(6, 182, 212, 0.2); }
+.border-accent\/30 { border-color: rgba(6, 182, 212, 0.3); }
+.border-accent\/40 { border-color: rgba(6, 182, 212, 0.4); }
+.border-accent\/50 { border-color: rgba(6, 182, 212, 0.5); }
+.border-border\/30 { border-color: rgba(31, 41, 55, 0.3); }
+.border-border\/50 { border-color: rgba(31, 41, 55, 0.5); }
+.text-accent\/30 { color: rgba(6, 182, 212, 0.3); }
+.focus\:border-accent:focus { border-color: #06b6d4; }
