@@ -1,0 +1,33 @@
+# Inventus
+> Inventus is a B2B digital intelligence and corporate OSINT agency based in Serbia. We provide attack surface analysis, data leak monitoring, brand protection, and competitive intelligence using exclusively publicly available sources and advanced technical methods. We do not conduct surveillance, background checks on individuals, or any activity requiring a private investigator license.
+
+## Overview
+Inventus helps companies understand what the internet knows about them. We analyze digital footprints, identify data breaches, protect brands from online impersonation, and assess competitors' digital strategies — all using Open Source Intelligence (OSINT) and technical security assessment methodologies.
+
+## Main Sections
+- [Homepage](https://inventus.agency/): Digital intelligence agency — digital footprint analysis, data leak monitoring, brand protection.
+- [Services](https://inventus.agency/usluge/): Complete spectrum of digital intelligence services for businesses.
+- [Blog](https://inventus.agency/blog/): Expert articles on digital intelligence and online security.
+- [Contact](https://inventus.agency/kontakt/): Request a free consultation or a complimentary basic OSINT domain scan.
+
+## Key Services
+- [Digital Footprint Analysis](https://inventus.agency/usluge/digitalni-otisak/): Comprehensive mapping of all publicly available information about a company on the internet — domains, subdomains, archives, public registers, and social media.
+- [Data Leak Monitoring](https://inventus.agency/usluge/monitoring-curenja/): Checking whether company emails, passwords, internal documents, or confidential data have leaked to the dark web or public breach databases.
+- [Brand Protection](https://inventus.agency/usluge/zastita-brenda/): Detection of fake websites, phishing pages, typosquat domains, and unauthorized social media profiles impersonating the company.
+- [Competitive Intelligence](https://inventus.agency/usluge/obavestajna-analiza/): Strategic analysis of competitors' digital presence — technology stack, traffic sources, online strategies, weaknesses, and opportunities.
+- [Email & Domain Security](https://inventus.agency/usluge/email-domen-sigurnost/): Technical analysis of DNS infrastructure, SPF/DMARC/DKIM configuration, certificate transparency logs, and potential vulnerabilities.
+- [Website Intelligence](https://inventus.agency/usluge/website-inteligencija/): Analysis of what a company's public website inadvertently reveals to potential attackers — technology stack, metadata, exposed directories, and security headers.
+
+## Methodology
+- All data is collected exclusively from publicly available sources (OSINT principles).
+- No hacking, social engineering, or unauthorized access is used.
+- No surveillance of individuals or background checks are conducted.
+- No services requiring a private investigator license are offered.
+- Reports are confidential and treated as proprietary business intelligence.
+
+## Key Facts
+- Inventus operates as an IT consulting business (NACE 6202) registered in Serbia.
+- Typical clients: CISOs, IT security teams, M&A investors, business owners, legal departments.
+- Turnaround time: 3-10 business days for standard reports; 24-48 hours for urgent summaries.
+- Response time to inquiries: within 24 hours.
+- Contact: hello@inventus.agency
