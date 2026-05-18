@@ -109,12 +109,24 @@ const pageTitle = title.includes('Inventus') ? title : `${title} | Inventus`;
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="manifest" href="/site.webmanifest" />
   
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
   <style is:global>
     @import "../styles/global.css";
   </style>
-  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom.css?v=2" />
+  
+  <style>
+    body { color: #ffffff !important; background-color: #030712 !important; }
+    h1, h2, h3, h4, h5, h6 { color: #ffffff !important; }
+    p, span, li, a, div { color: inherit; }
+    a { color: #06b6d4; }
+    a:hover { color: #22d3ee; }
+  </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col" style="color:#ffffff; background:#030712;">
   <slot name="nav">
     <Navigation />
   </slot>
